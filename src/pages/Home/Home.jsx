@@ -6,8 +6,8 @@ import styles from "./Home.module.scss";
 export function Home() {
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>
-        Find Home <span className={styles.primary}>Service/Repair</span>
+      <h1 className={styles.heading}>
+        Find Home <span className={styles.title}>Service/Repair</span>
         <br />
         Near You
       </h1>
@@ -18,7 +18,7 @@ export function Home() {
         <SearchInput />
         <Button isRounded>
           <div>
-            <CiSearch fontSize={24} />
+            <CiSearch className={styles.searchIcon}/>
           </div>
         </Button>
       </div>

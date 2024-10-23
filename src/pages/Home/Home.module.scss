@@ -3,12 +3,12 @@
   text-align: center;
 }
 
-.title {
+.heading {
   font-size: 3.5rem;
   line-height: 5rem;
 }
 
-.primary {
+.title {
   color: #8056eb;
 }
 
@@ -23,4 +23,8 @@
   margin: 2rem auto;
   width: 30%;
   gap: 1rem;
+}
+
+.searchIcon {
+  font-size: 1.5rem;
 }
