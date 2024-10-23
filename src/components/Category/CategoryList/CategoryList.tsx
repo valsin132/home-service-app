@@ -1,4 +1,4 @@
-import CategoryCard from "../CategoryCard/CategoryCard";
+import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { FaScrewdriverWrench } from "react-icons/fa6";
 import { FaTruck } from "react-icons/fa6";
 import { FaBrush } from "react-icons/fa6";

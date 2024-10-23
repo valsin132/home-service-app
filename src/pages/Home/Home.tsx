@@ -16,7 +16,7 @@ export function Home() {
       </p>
       <div className={styles.searchContainer}>
         <SearchInput />
-        <Button isRounded>
+        <Button onClick={() => console.log("clicked")} isRounded>
           <div>
             <CiSearch className={styles.searchIcon}/>
           </div>

@@ -29,7 +29,7 @@ export function Topbar() {
           ))}
         </nav>
       </div>
-        <Button title="Login / Sign Up" />
+        <Button title="Login / Sign Up" onClick={() => console.log("clicked")} />
     </div>
   );
 };

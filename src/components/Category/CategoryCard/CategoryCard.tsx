@@ -1,13 +1,23 @@
+import { IconType } from "react-icons";
 import styles from "./CategoryCard.module.scss";
 
-export default function CategoryCard({ category }) {
-    const { name, icon } = category;
-    const Icon = icon;
+interface Category {
+  name: string;
+  icon: IconType;
+  color: string;
+}
+
+interface CategoryCardProps {
+  category: Category;
+}
+
+export function CategoryCard({ category }: CategoryCardProps) {
+  const { name, icon: Icon, color } = category;
   
-    return (
-      <div className={styles.card}>
-        <Icon fontSize={48} color={category.color} />
-        <p className={styles.name}>{name}</p>
-      </div>
-    );
-  };
+  return (
+    <div className={styles.card}>
+      <Icon fontSize={48} color={color} />
+      <p className={styles.name}>{name}</p>
+    </div>
+  );
+};
