@@ -2,20 +2,21 @@ import { Button } from "../Button/Button";
 import styles from "./Topbar.module.scss";
 
 export function Topbar() {
-    const links = [
-        {
-          href: "#",
-          label: "Home",
-        },
-        {
-          href: "#",
-          label: "Services",
-        },
-        {
-          href: "#",
-          label: "About Us",
-        },
-      ];
+  const links = [
+      {
+        href: "#",
+        label: "Home",
+      },
+      {
+        href: "#",
+        label: "Services",
+      },
+      {
+        href: "#",
+        label: "About Us",
+      },
+    ];
+      
   return (
     <div className={styles.topbar}>
       <div className={styles.navWrapper}>
@@ -28,7 +29,7 @@ export function Topbar() {
           ))}
         </nav>
       </div>
-        <Button>Login / Sign Up</Button>
+        <Button title="Login / Sign Up" />
     </div>
   );
 };

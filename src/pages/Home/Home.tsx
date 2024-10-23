@@ -23,5 +23,5 @@ export function Home() {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
