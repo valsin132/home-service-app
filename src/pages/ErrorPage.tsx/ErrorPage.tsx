@@ -11,7 +11,9 @@ export function ErrorPage() {
   return (
     <div>
       <p>Sorry, an unexpected error has occurred.</p>
-      <p>{error.statusText || error.message}</p>
+      <p>
+        <i>{error.statusText || error.message}</i>
+      </p>
     </div>
   )
 }

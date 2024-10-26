@@ -1,6 +1,8 @@
 import { CiSearch } from "react-icons/ci";
 import { Button } from "../../components/Button/Button";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
+import { CategoryList } from "../../components/Category/CategoryList/CategoryList";
+import { BusinessList } from "../../components/Business/BusinessList/BusinessList";
 import styles from "./Home.module.scss";
 
 export function Home() {
@@ -22,6 +24,9 @@ export function Home() {
           </div>
         </Button>
       </div>
+      <CategoryList />
+      <h2 className={styles.popularTitle}>Popular businesses</h2>
+      <BusinessList />
     </div>
   );
 };

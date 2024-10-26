@@ -1,4 +1,6 @@
+import { useNavigate, generatePath } from "react-router-dom";
 import { IconType } from "react-icons";
+import { ROUTES } from "../../../router/constants";
 import styles from "./CategoryCard.module.scss";
 
 interface Category {
@@ -12,11 +14,13 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category }: CategoryCardProps) {
+  const navigate = useNavigate();
   const { name, icon: Icon, color } = category;
+  const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: name });
   
   return (
-    <div className={styles.card}>
-      <Icon fontSize={48} color={color} />
+    <div className={styles.card} onClick={() => navigate(categoryPath)}>
+      <Icon fontSize={40} color={color} />
       <p className={styles.name}>{name}</p>
     </div>
   );

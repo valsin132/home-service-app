@@ -6,7 +6,7 @@ import { Login } from './pages/Login/Login';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { SearchCategory } from './pages/SearchCategory/SearchCategory';
 import { Services } from './pages/Services/Services';
-import { ROUTES } from "./constants";
+import { ROUTES } from "./router/constants";
 import { RootLayout } from "./layout/RootLayout";
 
 const router = createBrowserRouter([
