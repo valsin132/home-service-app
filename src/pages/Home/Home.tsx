@@ -25,8 +25,10 @@ export function Home() {
         </Button>
       </div>
       <CategoryList />
-      <h2 className={styles.popularTitle}>Popular businesses</h2>
-      <BusinessList />
+      <div className={styles.businessList}>
+        <h2 className={styles.popularTitle}>Popular businesses</h2>
+        <BusinessList />
+      </div>
     </div>
   );
 };

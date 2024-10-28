@@ -1,5 +1,5 @@
 .card {
-  min-width: 160px;
+  width: 160px;
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,8 @@
 }
 
 .vertical {
-  height: fit-content;
+  width: 100%;
+  height: auto;
   flex-direction: row;
   justify-content: flex-start;
   background-color: inherit;
@@ -32,6 +33,10 @@
   border: 2px solid #e6e6e6;
   border-radius: 1rem;
   margin-bottom: 1rem;
+
+  :last-child {
+    color: inherit;
+  }
 
   &:hover,
   &.active {

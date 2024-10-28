@@ -21,7 +21,7 @@ export function CategoryCard({ category, isVertical }: CategoryCardProps) {
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: name });
   
   return (
-    <div className={classNames(styles.card, { [styles.vertical]: isVertical})} onClick={() => navigate(categoryPath)}>
+    <div className={classNames(styles.card, { [styles.vertical]: isVertical })} onClick={() => navigate(categoryPath)}>
       <Icon fontSize={40} color={color} />
       <p className={styles.name}>{name}</p>
     </div>
