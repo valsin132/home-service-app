@@ -1,5 +1,5 @@
 .card {
-  width: 160px;
+  min-width: 160px;
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -20,5 +20,22 @@
     background-color: #f7f4fd;
     transition: 300ms;
     cursor: pointer;
+  }
+}
+
+.vertical {
+  height: fit-content;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: inherit;
+  padding: 1rem;
+  border: 2px solid #e6e6e6;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+
+  &:hover,
+  &.active {
+    background-color: #f2eefd;
+    border-color: #beaaf5;
   }
 }
