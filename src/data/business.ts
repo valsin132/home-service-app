@@ -51,4 +51,30 @@ export const businesses = [
         },
       ],
     },
-  ];
+    {
+      _id: 5,
+      name: "UAB Repair",
+      address: "Bažnyčios g. 10, Vilnius",
+      category: "repair",
+      contactPerson: "Antanas Antanaitis",
+      email: "email5@example.com",
+      images: [
+        {
+          url: "https://grainger-prod.adobecqms.net/content/dam/grainger/gus/en/public/digital-tactics/know-how/hero/kh-qualified-vs-unqualified-electrical-workers_feat.jpg",
+        },
+      ],
+    },
+    {
+      _id: 6,
+      name: "UAB Painting",
+      address: "Taikos pr. 20, Kaunas",
+      category: "painting",
+      contactPerson: "Darius Tomaitis",
+      email: "email6@example.com",
+      images: [
+        {
+          url: "https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners.jpg",
+        },
+      ],
+    },
+];
