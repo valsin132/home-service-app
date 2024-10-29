@@ -12,12 +12,61 @@
   gap: 2rem;
 }
 
-.link {
+.links {
   display: flex;
+  align-items: center;
   gap: 2rem;
   color: #323232;
   font-size: 1.2rem;
   font-weight: 500;
   text-decoration: none;
+}
+
+.burgerButton {
+  background-color: inherit;
+  color: #8056eb;
+  display: none;
+  font-size: 2rem;
+
+  &:active {
+    color: #323232;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .navWrapper {
+    flex-direction: column;
+  }
+
+  .burgerButton {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+  }
+
+  .links {
+    flex-direction: column;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    
+  }
+
+  .burgerOpen {
+    display: flex;
+    height: auto;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 576px) {
+
+
+  .navbar__burger-btn {
+    top: 2rem;
+  }
 }
 

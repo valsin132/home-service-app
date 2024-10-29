@@ -7,3 +7,20 @@
   gap: 1rem;
   padding: 0 1rem;
 }
+
+@media (max-width: 1220px) {
+  
+  .container {
+    display: grid;
+  grid-template-columns: 160px 160px 160px;
+  grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  
+  .container {
+    display: grid;
+    grid-template-columns: 160px 160px;
+  }
+}
