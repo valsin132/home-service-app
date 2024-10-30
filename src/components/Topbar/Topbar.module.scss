@@ -12,9 +12,13 @@
   gap: 2rem;
 }
 
+.navigation {
+  display: flex;
+  gap: 1.5rem;
+}
+
 .links {
   display: flex;
-  align-items: center;
   gap: 2rem;
   color: #323232;
   font-size: 1.2rem;
@@ -34,10 +38,6 @@
 }
 
 @media (max-width: 900px) {
-
-  .navWrapper {
-    flex-direction: column;
-  }
 
   .burgerButton {
     display: flex;

@@ -39,12 +39,10 @@ export function Topbar() {
             <li>
               <Link to={ROUTES.ABOUT_US} onClick={handleMenuItemClick}>About Us</Link>
             </li>
-            <li>
-              <Button title="Login / Sign Up" onClick={() => navigate(ROUTES.LOGIN)} />
-            </li>
           </ul>
         </nav>
       </div>
+      <Button title="Login / Sign Up" onClick={() => navigate(ROUTES.LOGIN)} />
       <button
         className={styles.burgerButton}
         onClick={handleMenuToggle}
