@@ -1,22 +1,21 @@
-import { createContext, ReactNode, useContext } from "react";
-import { useInRouterContext } from "react-router-dom";
+import { createContext, ReactNode } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 
-type EmailCreadentials = {
+type EmailCredentials = {
   email: string;
   password: string;
 }
 
 interface User {
-  id: number;
+  _id: number;
   name: string;
   email: string;
 }
 
 interface UserContextType {
   user: User | null;
-  login: (user: EmailCreadentials) => void;
+  login: (user: EmailCredentials) => void;
   logout: () => void;
 }
 
@@ -24,11 +23,12 @@ export const UserContext = createContext<UserContextType>({} as UserContextType)
 
 const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
-  const login = (user: EmailCreadentials) => {
-    // imituojamas prisijungimas
-    // jei pasiseka nustatote gauta useInRouterContext
-    // jei nepasiseka, irasote klaida ir ja atvaizduojate
+
+  const login = (user: EmailCredentials) => {
+    //laikinai del 4 uzduoties
+    setUser(user);
   }
+
   const logout = () => setUser(null);
 
   return (

@@ -28,7 +28,7 @@ export function Topbar() {
         <Link to={ROUTES.HOME} onClick={handleMenuItemClick}>
             <img src={Logo} alt="logo" />
         </Link>
-        <nav className={styles.navigation}>
+        <nav className={classNames(styles.navigation, menuOpen && styles.burgerOpen)}>
           <ul className={classNames(styles.links, menuOpen && styles.burgerOpen)}>
             <li>
               <Link to={ROUTES.HOME} onClick={handleMenuItemClick}>Home</Link>
@@ -40,9 +40,10 @@ export function Topbar() {
               <Link to={ROUTES.ABOUT_US} onClick={handleMenuItemClick}>About Us</Link>
             </li>
           </ul>
+          <Button title="Login / Sign Up" onClick={() => navigate(ROUTES.LOGIN)} />
         </nav>
       </div>
-      <Button title="Login / Sign Up" onClick={() => navigate(ROUTES.LOGIN)} />
+      {/* <Button title="Login / Sign Up" onClick={() => navigate(ROUTES.LOGIN)} /> */}
       <button
         className={styles.burgerButton}
         onClick={handleMenuToggle}

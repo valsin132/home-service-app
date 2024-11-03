@@ -1,7 +1,4 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 2rem 4rem;
   border-bottom: 2px solid #f1f1f1;
 }
@@ -13,7 +10,10 @@
 }
 
 .navigation {
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
 }
 
@@ -39,6 +39,10 @@
 
 @media (max-width: 900px) {
 
+  .navWrapper {
+    display: block;
+  }
+
   .burgerButton {
     display: flex;
     position: absolute;
@@ -46,16 +50,16 @@
     top: 2rem;
   }
 
-  .links {
+  .navigation {
     flex-direction: column;
     height: 0;
     opacity: 0;
     overflow: hidden;
-    
   }
 
   .burgerOpen {
     display: flex;
+    flex-direction: column;
     height: auto;
     opacity: 1;
     transition: 0.5s ease-in-out;

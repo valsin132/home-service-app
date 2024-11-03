@@ -77,4 +77,17 @@ export const businesses = [
         },
       ],
     },
+    {
+      _id: 7,
+      name: "UAB Nice",
+      address: "Taikos pr. 20, Vilnius",
+      category: "cleaning",
+      contactPerson: "Darius Tomaitis",
+      email: "email6@example.com",
+      images: [
+        {
+          url: "https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners.jpg",
+        },
+      ],
+    },
 ];

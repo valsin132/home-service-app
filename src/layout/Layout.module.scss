@@ -5,3 +5,10 @@
 .authLayoutContainer {
     padding: 4rem 2rem;
 }
+
+@media (max-width: 420px) {
+  
+    .rootLayoutContainer {
+      padding: 2rem;
+    }
+  }

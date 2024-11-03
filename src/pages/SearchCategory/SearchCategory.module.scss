@@ -3,20 +3,20 @@
     gap: 2rem;
   }
   
-  .categories {
-    width: 30%;
-  }
-  
-  .title {
-    padding-bottom: 2rem;
-    font-size: 1.5rem;
-    text-transform: capitalize;
-  }
-  
-  .businessContainer {
-    width: 70%;
-  }
-  
-  .businessList {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.categories {
+  width: 30%;
+}
+
+.title {
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.businessContainer {
+  width: 70%;
+}
+
+.businessList {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+}
