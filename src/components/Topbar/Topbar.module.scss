@@ -69,6 +69,11 @@
     opacity: 1;
     transition: 0.5s ease-in-out;
   }
+
+  .links {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {
