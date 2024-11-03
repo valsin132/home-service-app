@@ -25,7 +25,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
 
   const login = (user: EmailCredentials) => {
-    //laikinai del 4 uzduoties
+    //laikinai del 4 uzduoties padariau setUser(user): Suvedus inputus ir paspaudus Login mygtuką išsaugoti userio informaciją su useContext ir localStorage bei redirectint į pagrindinį / route
     setUser(user);
   }
 
