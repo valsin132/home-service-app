@@ -1,0 +1,58 @@
+.loginWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: rgba(86, 20, 208, 0.25) 5px 5px 15px;
+}
+
+.title {
+    font-size: 2rem;
+  }
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1rem;
+    width: 300px;
+}
+
+.error {
+  color: #FF2C2C;
+  font-size: 0.8rem;
+  max-width: 300px;
+}
+
+.submitButton {
+    padding: 0.6rem 1.5rem;
+    background-color: #8056eb;
+    color: #ffffff;
+    border-radius: 2rem;
+    font-size: 1rem;
+  
+    &:hover {
+      background-color: #5b24e7;
+    }
+  }
+
+.link {
+    color: #8056eb;
+    font-weight: 500;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
