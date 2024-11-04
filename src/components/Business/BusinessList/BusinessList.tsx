@@ -27,4 +27,4 @@ export function BusinessList ({ category, className }: BusinessListProps) {
       ))}
     </div>
   );
-}
+};

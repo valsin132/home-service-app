@@ -5,7 +5,6 @@ interface AvatarProps {
     children: ReactNode;
 }
 
-const Avatar = ({ children }: AvatarProps) => {
+export function Avatar ({ children }: AvatarProps) {
   return <div className={styles.avatar}>{children}</div>;
 };
-export default Avatar;

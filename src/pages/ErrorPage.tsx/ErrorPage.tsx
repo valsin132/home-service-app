@@ -6,7 +6,7 @@ type RouteError = {
   };
 
 export function ErrorPage() {
-    const error = useRouteError() as RouteError;
+  const error = useRouteError() as RouteError;
 
   return (
     <div>
