@@ -1,7 +1,7 @@
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate, Link } from "react-router-dom";
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { ROUTES } from "../../router/constants";
+import { ROUTES } from "../../constants";
 import { Button } from "../Button/Button";
 import Avatar from "../Avatar/Avatar";
 import Logo from "../../assets/logo.svg"

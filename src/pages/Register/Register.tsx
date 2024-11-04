@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../router/constants"
+import { ROUTES } from "../../constants"
 import styles from "../Login/Login.module.scss";
 
 export function Register() {

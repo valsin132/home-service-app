@@ -8,7 +8,7 @@ import { AuthLayout } from "./layout/AuthLayout";
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { SearchCategory } from './pages/SearchCategory/SearchCategory';
 import { Services } from './pages/Services/Services';
-import { ROUTES } from "./router/constants";
+import { ROUTES } from "./constants";
 import { RootLayout } from "./layout/RootLayout";
 import UserContextProvider from './contexts/UserContext';
 

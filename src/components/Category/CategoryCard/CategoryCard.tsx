@@ -1,6 +1,6 @@
 import { useNavigate, generatePath, useParams } from "react-router-dom";
 import { IconType } from "react-icons";
-import { ROUTES } from "../../../router/constants";
+import { ROUTES } from "../../../constants";
 import classNames from "classnames";
 import styles from "./CategoryCard.module.scss";
 

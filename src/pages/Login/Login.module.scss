@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
     max-width: 500px;
     margin: 0 auto;
     background-color: #ffffff;
@@ -19,7 +19,7 @@
 .formContainer {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .input {
@@ -27,6 +27,12 @@
     border-bottom: 1px solid black;
     font-size: 1rem;
     width: 300px;
+}
+
+.error {
+  color: #FF2C2C;
+  font-size: 0.8rem;
+  max-width: 300px;
 }
 
 .submitButton {
