@@ -9,11 +9,10 @@ interface BusinessListProps {
   }
 
 export function BusinessList ({ category, className }: BusinessListProps) {
-  
+ 
   return (
     <div className={classNames(styles.container, className)}>
-      {businesses
-        .filter(business => !category || business.category === category)
+      {(category ? businesses.filter(business => business.category === category) : businesses)
         .map(business => (
         <BusinessCard
             key={business._id}
