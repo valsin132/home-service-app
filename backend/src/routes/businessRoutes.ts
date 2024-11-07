@@ -1,4 +1,4 @@
-import express from "express";
+import express, { RequestHandler } from "express";
 import Category from "../models/Category";
 import Business from "../models/Business";
 import Booking from "../models/Booking";
@@ -15,19 +15,17 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", authMiddleware, async (req, res) => {
+const createBusiness: RequestHandler = async (req, res) => {
   const business = req.body;
-
   try {
     const categoryExists = await Category.findOne({ name: business.category });
     if (!categoryExists) {
-      return res.status(400).json({
+      res.status(400).json({
         message: "Failed to add business: specified category does not exist.",
       });
+      return;
     }
-
     const newBusiness = new Business(business);
-
     const savedBusiness = await newBusiness.save();
     res.status(201).json(savedBusiness);
   } catch (err) {
@@ -36,7 +34,9 @@ router.post("/", authMiddleware, async (req, res) => {
       error: (err as Error).message,
     });
   }
-});
+};
+
+router.post("/", authMiddleware, createBusiness);
 
 router.get("/:id", async (req, res) => {
   try {
@@ -45,6 +45,7 @@ router.get("/:id", async (req, res) => {
       res.json(business);
     } else {
       res.status(404).send("Business not found");
+      return;
     }
   } catch (err) {
     res.status(500).json({ message: "Error fetching business", error: err });

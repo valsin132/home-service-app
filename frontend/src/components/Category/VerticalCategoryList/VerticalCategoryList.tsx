@@ -1,6 +1,6 @@
-import { CategoryCard } from '../CategoryCard/CategoryCard';
-import { categories } from '../../../data/category';
-import styles from './VerticalCategoryList.module.scss';
+import { CategoryCard } from "../CategoryCard/CategoryCard";
+import { categories } from "../../../data/category";
+import styles from "./VerticalCategoryList.module.scss";
 
 export function VerticalCategoryList() {
   return (

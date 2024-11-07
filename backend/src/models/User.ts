@@ -1,7 +1,16 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 import bcrypt from "bcryptjs";
 
-const userSchema = new mongoose.Schema(
+interface IUser extends mongoose.Document {
+  _id: Types.ObjectId;
+  name: string;
+  age?: number;
+  email: string;
+  password: string;
+  isCorrectPassword: (password: string) => Promise<boolean>;
+}
+
+const userSchema = new mongoose.Schema<IUser>(
   {
     name: { type: String, required: true },
     age: { type: Number },
@@ -14,7 +23,7 @@ const userSchema = new mongoose.Schema(
   },
 );
 
-userSchema.pre("save", async function (next) {
+userSchema.pre<IUser>("save", async function (next) {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 10);
   }
@@ -25,4 +34,8 @@ userSchema.methods.isCorrectPassword = function (password: string) {
   return bcrypt.compare(password, this.password);
 };
 
-export default mongoose.model("User", userSchema);
+const User = mongoose.model<IUser>("User", userSchema);
+
+export default User;
+
+// export const UserModel = mongoose.model("User", userSchema);

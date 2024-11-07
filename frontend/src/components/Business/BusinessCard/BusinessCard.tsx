@@ -1,7 +1,7 @@
-import { Button } from '../../Button/Button';
-import { FaHeart } from 'react-icons/fa6';
-import { useLocalStorage } from 'usehooks-ts';
-import styles from './BusinessCard.module.scss';
+import { Button } from "../../Button/Button";
+import { FaHeart } from "react-icons/fa6";
+import { useLocalStorage } from "usehooks-ts";
+import styles from "./BusinessCard.module.scss";
 
 interface BusinessCardProps {
   _id: number;
@@ -20,7 +20,7 @@ export function BusinessCard({
   contactPerson,
   imageUrls,
 }: BusinessCardProps) {
-  const [likedCards, setLikedCards] = useLocalStorage<BusinessCardProps[]>('liked-businesses', []);
+  const [likedCards, setLikedCards] = useLocalStorage<BusinessCardProps[]>("liked-businesses", []);
 
   const handleLikeClick = () => {
     const isAlreadyLiked = likedCards.some((card) => card._id === _id);
@@ -36,7 +36,7 @@ export function BusinessCard({
       <FaHeart
         className={styles.likeIcon}
         onClick={handleLikeClick}
-        style={{ color: likedCards.some((card) => card._id === _id) ? 'red' : 'grey' }}
+        style={{ color: likedCards.some((card) => card._id === _id) ? "red" : "grey" }}
       />
       {imageUrls.length && <img src={imageUrls[0]} alt={name} className={styles.image} />}
       <div className={styles.infoContainer}>

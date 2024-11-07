@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styles from './Avatar.module.scss';
+import { ReactNode } from "react";
+import styles from "./Avatar.module.scss";
 
 interface AvatarProps {
   children: ReactNode;

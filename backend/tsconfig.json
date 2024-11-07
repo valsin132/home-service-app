@@ -7,7 +7,8 @@
     "strict": true, // Įjungia visus griežtus tipo tikrinimo nustatymus
     "esModuleInterop": true, // Įgalina suderinamumą su CommonJS ir ES moduliais
     "skipLibCheck": true, // Praleidžia deklaracijų failų tikrinimą
-    "forceConsistentCasingInFileNames": true // Draudžia nevienodai atitinkančius failų pavadinimus
+    "forceConsistentCasingInFileNames": true, // Draudžia nevienodai atitinkančius failų pavadinimus
+    "moduleResolution": "node"
   },
   "include": ["src"], // Įtraukia visus failus iš "src" katalogo
   "exclude": ["node_modules"] // Išskiria "node_modules" katalogą

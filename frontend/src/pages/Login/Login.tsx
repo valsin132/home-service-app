@@ -1,37 +1,37 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { EMAIL_REGEX, PASSWORD_REGEX } from '../../constants';
-import { ROUTES } from '../../constants';
-import { useContext, useState } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import styles from './Login.module.scss';
+import { Link, useNavigate } from "react-router-dom";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants";
+import { ROUTES } from "../../constants";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import styles from "./Login.module.scss";
 
 export function Login() {
   const { login } = useContext(UserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email: string) => {
     if (!email) {
-      setEmailError('Email is required.');
+      setEmailError("Email is required.");
     } else if (!EMAIL_REGEX.test(email)) {
-      setEmailError('Please enter a valid email.');
+      setEmailError("Please enter a valid email.");
     } else {
-      setEmailError('');
+      setEmailError("");
     }
   };
 
   const validatePassword = (password: string) => {
     if (!password) {
-      setPasswordError('Password is required.');
+      setPasswordError("Password is required.");
     } else if (!PASSWORD_REGEX.test(password)) {
       setPasswordError(
-        'Password must include at least 8 characters, an uppercase letter, a number, and a special character.',
+        "Password must include at least 8 characters, an uppercase letter, a number, and a special character.",
       );
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
   };
 
