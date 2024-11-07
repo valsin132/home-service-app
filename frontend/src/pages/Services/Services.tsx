@@ -1,9 +1,3 @@
-
-
 export function Services() {
-  return (
-    <div>
-      services
-    </div>
-  )
+  return <div>services</div>;
 }

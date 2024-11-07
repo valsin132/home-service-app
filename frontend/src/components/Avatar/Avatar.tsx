@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
-import styles from "./Avatar.module.scss";
+import { ReactNode } from 'react';
+import styles from './Avatar.module.scss';
 
 interface AvatarProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-export function Avatar ({ children }: AvatarProps) {
+export function Avatar({ children }: AvatarProps) {
   return <div className={styles.avatar}>{children}</div>;
-};
+}

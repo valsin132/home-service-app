@@ -4,12 +4,12 @@ import { AboutUs } from './pages/AboutUs/AboutUs';
 import { ErrorPage } from './pages/ErrorPage.tsx/ErrorPage';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
-import { AuthLayout } from "./layout/AuthLayout";
+import { AuthLayout } from './layout/AuthLayout';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { SearchCategory } from './pages/SearchCategory/SearchCategory';
 import { Services } from './pages/Services/Services';
-import { ROUTES } from "./constants";
-import { RootLayout } from "./layout/RootLayout";
+import { ROUTES } from './constants';
+import { RootLayout } from './layout/RootLayout';
 import UserContextProvider from './contexts/UserContext';
 
 const router = createBrowserRouter([
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <SearchCategory />,
       },
       {
-        path: "*",
+        path: '*',
         element: <NotFoundPage />,
       },
     ],
@@ -59,6 +59,6 @@ export function App() {
   return (
     <UserContextProvider>
       <RouterProvider router={router} />
-    </UserContextProvider> 
+    </UserContextProvider>
   );
-};
+}

@@ -1,9 +1,9 @@
-import { CiSearch } from "react-icons/ci";
-import { Button } from "../../components/Button/Button";
-import { SearchInput } from "../../components/SearchInput/SearchInput";
-import { CategoryList } from "../../components/Category/CategoryList/CategoryList";
-import { BusinessList } from "../../components/Business/BusinessList/BusinessList";
-import styles from "./Home.module.scss";
+import { CiSearch } from 'react-icons/ci';
+import { Button } from '../../components/Button/Button';
+import { SearchInput } from '../../components/SearchInput/SearchInput';
+import { CategoryList } from '../../components/Category/CategoryList/CategoryList';
+import { BusinessList } from '../../components/Business/BusinessList/BusinessList';
+import styles from './Home.module.scss';
 
 export function Home() {
   return (
@@ -13,14 +13,12 @@ export function Home() {
         <br />
         Near You
       </h1>
-      <p className={styles.subtitle}>
-        Explore Best Home Service & Repair near you
-      </p>
+      <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <div className={styles.searchContainer}>
         <SearchInput />
-        <Button onClick={() => console.log("clicked")} isRounded>
+        <Button onClick={() => console.log('clicked')} isRounded>
           <div>
-            <CiSearch className={styles.searchIcon}/>
+            <CiSearch className={styles.searchIcon} />
           </div>
         </Button>
       </div>
@@ -31,4 +29,4 @@ export function Home() {
       </div>
     </div>
   );
-};
+}

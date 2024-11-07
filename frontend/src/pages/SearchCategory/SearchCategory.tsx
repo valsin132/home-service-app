@@ -1,7 +1,7 @@
-import { VerticalCategoryList } from "../../components/Category/VerticalCategoryList/VerticalCategoryList";
-import { BusinessList } from "../../components/Business/BusinessList/BusinessList";
-import { useParams } from "react-router-dom";
-import styles from "./SearchCategory.module.scss"
+import { VerticalCategoryList } from '../../components/Category/VerticalCategoryList/VerticalCategoryList';
+import { BusinessList } from '../../components/Business/BusinessList/BusinessList';
+import { useParams } from 'react-router-dom';
+import styles from './SearchCategory.module.scss';
 
 export function SearchCategory() {
   const { category } = useParams();
@@ -17,5 +17,4 @@ export function SearchCategory() {
       </div>
     </div>
   );
-};
-
+}

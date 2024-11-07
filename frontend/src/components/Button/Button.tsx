@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./Button.module.scss";
+import classNames from 'classnames';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   title?: string;
@@ -10,13 +10,9 @@ interface ButtonProps {
 
 export function Button({ isRounded, title, children, onClick }: ButtonProps) {
   return (
-    <button
-      className={classNames(
-        styles.button,
-        isRounded && styles.rounded
-      )}
-      onClick={onClick}
-    >{children}
-    {title}</button>
+    <button className={classNames(styles.button, isRounded && styles.rounded)} onClick={onClick}>
+      {children}
+      {title}
+    </button>
   );
-};
+}
