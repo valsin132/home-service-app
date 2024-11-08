@@ -1,18 +1,20 @@
-import express from "express";
+import express, { RequestHandler} from "express";
 import Category from "../models/Category";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+const getCategories: RequestHandler = async (req, res) => {
   try {
     const categories = await Category.find();
     res.json(categories);
   } catch (err) {
     res.status(500).json({ message: "Error fetching categories", error: err });
   }
-});
+};
 
-router.post("/", async (req, res) => {
+router.get("/", getCategories);
+
+const createCategory: RequestHandler = async (req, res) => {
   try {
     const newCategory = new Category(req.body);
     await newCategory.save();
@@ -23,6 +25,8 @@ router.post("/", async (req, res) => {
       error: (err as Error)?.message ?? err,
     });
   }
-});
+};
+
+router.post("/", createCategory);
 
 export default router;
