@@ -34,8 +34,4 @@ userSchema.methods.isCorrectPassword = function (password: string) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model<IUser>("User", userSchema);
-
-export default User;
-
-// export const UserModel = mongoose.model("User", userSchema);
+export const User = mongoose.model<IUser>("User", userSchema);

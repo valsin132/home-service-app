@@ -1,5 +1,5 @@
 import express, { RequestHandler } from "express";
-import User from "../models/User";
+import { User } from "../models/User";
 import generateToken from "../utils/password";
 
 const router = express.Router();
