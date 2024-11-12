@@ -6,20 +6,14 @@
   align-items: center;
   gap: 1rem;
   padding: 0 1rem;
-}
 
-@media (max-width: 1220px) {
-  
-  .container {
+  @include for-desktop-down {
     display: grid;
     grid-template-columns: 160px 160px 160px;
     grid-template-rows: auto;
   }
-}
 
-@media (max-width: 550px) {
-  
-  .container {
+  @include for-phone-only {
     display: grid;
     grid-template-columns: 160px 160px;
   }

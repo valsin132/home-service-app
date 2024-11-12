@@ -1,12 +1,20 @@
 .header {
   padding: 2rem 4rem;
   border-bottom: 2px solid #f1f1f1;
+
+  @include for-tablet-landscape-down {
+    padding: 2rem;
+  }
 }
 
 .navWrapper {
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @include for-tablet-landscape-down {
+    display: block;
+  }
 }
 
 .navigation {
@@ -15,6 +23,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+
+  @include for-tablet-landscape-down {
+    padding-top: 1rem;
+    flex-direction: column;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
 }
 
 .links {
@@ -24,6 +40,11 @@
   font-size: 1.2rem;
   font-weight: 500;
   text-decoration: none;
+
+  @include for-tablet-landscape-down {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .burgerButton {
@@ -35,43 +56,22 @@
   &:active {
     color: #323232;
   }
-}
 
-@media (max-width: 900px) {
-
-  .header {
-    padding: 2rem;
-  }
-
-  .navWrapper {
-    display: block;
-  }
-
-  .burgerButton {
+  @include for-tablet-landscape-down {
     display: flex;
     position: absolute;
     right: 1rem;
     top: 2rem;
   }
+}
 
-  .navigation {
-    padding-top: 1rem;
-    flex-direction: column;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-  }
+.burgerOpen {
 
-  .burgerOpen {
+  @include for-tablet-landscape-down {
     display: flex;
     flex-direction: column;
     height: auto;
     opacity: 1;
     transition: 0.5s ease-in-out;
-  }
-
-  .links {
-    flex-direction: column;
-    text-align: center;
   }
 }
