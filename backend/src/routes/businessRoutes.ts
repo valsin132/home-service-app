@@ -7,7 +7,7 @@ import {
   getBusinessesByCategory,
   getBusinessesByDate,
   updateBusiness,
-} from "../controllers/businessControllers";
+} from "../controllers/businessController";
 
 const router = express.Router();
 

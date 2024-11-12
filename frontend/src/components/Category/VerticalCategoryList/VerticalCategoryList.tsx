@@ -8,7 +8,13 @@ export function VerticalCategoryList() {
       <h2 className={styles.title}>Categories</h2>
       <div className={styles.container}>
         {categories.map((category) => (
-          <CategoryCard isVertical key={category.name} category={category} />
+          <CategoryCard
+            isVertical
+            key={category.name}
+            name={category.name}
+            icon={category.icon}
+            color={category.color}
+          />
         ))}
       </div>
     </div>

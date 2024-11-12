@@ -4,21 +4,17 @@ import { ROUTES } from "../../../constants";
 import classNames from "classnames";
 import styles from "./CategoryCard.module.scss";
 
-interface Category {
+interface CategoryCardProps {
   name: string;
   icon: IconType;
   color: string;
-}
-
-interface CategoryCardProps {
-  category: Category;
   isVertical?: boolean;
 }
 
-export function CategoryCard({ category, isVertical }: CategoryCardProps) {
+export function CategoryCard({ name, icon: Icon, color, isVertical }: CategoryCardProps) {
   const params = useParams();
   const navigate = useNavigate();
-  const { name, icon: Icon, color } = category;
+
   const activeCategory = params.category;
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: name });
 

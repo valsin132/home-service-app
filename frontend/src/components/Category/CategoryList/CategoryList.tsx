@@ -6,7 +6,12 @@ export function CategoryList() {
   return (
     <div className={styles.container}>
       {categories.map((category) => (
-        <CategoryCard key={category.name} category={category} />
+        <CategoryCard
+          key={category.name}
+          name={category.name}
+          icon={category.icon}
+          color={category.color}
+        />
       ))}
     </div>
   );
