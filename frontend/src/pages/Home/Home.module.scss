@@ -1,11 +1,21 @@
 .wrapper {
   padding-top: 6rem;
   text-align: center;
+
+  @include for-tablet-portrait-down {
+    padding-top: 0rem;
+    text-align: center;
+  }
 }
 
 .heading {
   font-size: 3.5rem;
   line-height: 5rem;
+
+  @include for-tablet-portrait-down {
+    font-size: 1.8rem;
+    line-height: 3rem;
+  }
 }
 
 .title {
@@ -38,17 +48,4 @@
 .popularTitle {
   font-size: 1.2rem;
   padding: 2rem 0;
-}
-
-@media (max-width: 700px) {
-
-  .wrapper {
-    padding-top: 0rem;
-    text-align: center;
-  }
-
-  .heading {
-    font-size: 1.8rem;
-    line-height: 3rem;
-  }
 }

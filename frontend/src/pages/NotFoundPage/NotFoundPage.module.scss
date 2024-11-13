@@ -10,6 +10,9 @@
     & .header {
         color: #8056eb;
         font-size: 5rem;
-    }
 
+        @include for-phone-only {
+            font-size: 4rem;
+        }
+    }
 }

@@ -1,10 +1,18 @@
 .wrapper {
     display: flex;
     gap: 2rem;
+
+    @include for-tablet-portrait-down {
+      flex-direction: column;
+    }
   }
   
 .categories {
   width: 30%;
+
+  @include for-tablet-portrait-down {
+    width: 100%;
+  }
 }
 
 .title {
@@ -15,27 +23,16 @@
 
 .businessContainer {
   width: 70%;
+
+  @include for-tablet-portrait-down {
+    width: 100%;
+  }
 }
 
 .businessList {
   grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-}
 
-@media (max-width: 700px) {
-  
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .categories {
-    width: 100%;
-  }
-
-  .businessContainer {
-    width: 100%;
-  }
-
-  .businessList {
+  @include for-tablet-portrait-down {
     grid-template-columns: auto;
   }
 }
