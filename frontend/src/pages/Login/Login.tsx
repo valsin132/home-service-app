@@ -60,7 +60,7 @@ export function Login() {
           onBlur={() => validateEmail(email)}
           required
         />
-        {emailError && <p className={styles.error}>{emailError}</p>}
+        {emailError && <small className={styles.error}>{emailError}</small>}
         <label htmlFor="password">Password:</label>
         <input
           className={styles.input}
