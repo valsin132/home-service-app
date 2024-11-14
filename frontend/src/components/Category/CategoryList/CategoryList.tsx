@@ -1,5 +1,5 @@
 import { CategoryCard } from "../CategoryCard/CategoryCard";
-import { categories } from "../../../data/category";
+import { categories } from "../../../dataLocal/category";
 import styles from "./CategoryList.module.scss";
 
 export function CategoryList() {

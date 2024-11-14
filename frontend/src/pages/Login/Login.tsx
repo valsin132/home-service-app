@@ -50,20 +50,22 @@ export function Login() {
     <div className={styles.loginWrapper}>
       <h2 className={styles.title}>Login</h2>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
+        <label htmlFor="email">Email:</label>
         <input
           className={styles.input}
           type="email"
-          placeholder="Email"
+          placeholder="Insert email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           onBlur={() => validateEmail(email)}
           required
         />
         {emailError && <p className={styles.error}>{emailError}</p>}
+        <label htmlFor="password">Password:</label>
         <input
           className={styles.input}
           type="password"
-          placeholder="Password"
+          placeholder="Insert password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           onBlur={() => validatePassword(password)}
