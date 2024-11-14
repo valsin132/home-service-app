@@ -35,7 +35,7 @@ export function Login() {
     }
   };
 
-  const handleSubmit: React.FormEventHandler = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     validateEmail(email);
     validatePassword(password);
@@ -50,28 +50,32 @@ export function Login() {
     <div className={styles.loginWrapper}>
       <h2 className={styles.title}>Login</h2>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <label htmlFor="email">Email:</label>
-        <input
-          className={styles.input}
-          type="email"
-          placeholder="Insert email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          onBlur={() => validateEmail(email)}
-          required
-        />
-        {emailError && <small className={styles.error}>{emailError}</small>}
-        <label htmlFor="password">Password:</label>
-        <input
-          className={styles.input}
-          type="password"
-          placeholder="Insert password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          onBlur={() => validatePassword(password)}
-          required
-        />
-        {passwordError && <p className={styles.error}>{passwordError}</p>}
+        <div className={styles.inputContainer}>
+          <label htmlFor="email">Email:</label>
+          <input
+            className={styles.input}
+            type="email"
+            placeholder="Insert email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={() => validateEmail(email)}
+            required
+          />
+          {emailError && <small className={styles.error}>{emailError}</small>}
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="password">Password:</label>
+          <input
+            className={styles.input}
+            type="password"
+            placeholder="Insert password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onBlur={() => validatePassword(password)}
+            required
+          />
+          {passwordError && <p className={styles.error}>{passwordError}</p>}
+        </div>
         <button className={styles.submitButton} type="submit">
           Login
         </button>

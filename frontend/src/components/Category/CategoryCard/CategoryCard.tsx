@@ -14,10 +14,6 @@ export function CategoryCard({ category, isVertical }: CategoryCardProps) {
   const params = useParams();
   const navigate = useNavigate();
 
-  if (!category) {
-    return <div>Loading...</div>;
-  }
-
   const activeCategory = params.category;
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: category.name });
   const Icon = iconMap[category.name as keyof typeof iconMap] || iconMap.defaultIcon;

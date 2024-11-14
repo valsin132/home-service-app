@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     max-width: 500px;
     margin: 0 auto;
     background-color: #ffffff;
@@ -22,12 +22,20 @@
     gap: 1.5rem;
 }
 
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .input {
     border: none;
     border-bottom: 1px solid black;
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: 300px;
 }
+
+
 
 .error {
   color: #FF2C2C;

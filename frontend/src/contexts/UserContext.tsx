@@ -20,7 +20,7 @@ interface UserContextType {
 
 export const UserContext = createContext<UserContextType>({} as UserContextType);
 
-const UserContextProvider = ({ children }: { children: ReactNode }) => {
+export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
 
   const login = (user: EmailCredentials) => {
