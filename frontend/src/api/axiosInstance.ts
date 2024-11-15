@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const config: AxiosRequestConfig = {
-  baseURL: "http://localhost:4000/",
+  baseURL: "http://localhost:4000",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",

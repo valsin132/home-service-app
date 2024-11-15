@@ -10,7 +10,7 @@ const registrationErrorMessage = "Registration failed";
 
 export const register = async (values: RegistrationValues) => {
   try {
-    const response = await axiosInstance.post<RegisterResponse>("/register", values);
+    const response = await axiosInstance.post<RegisterResponse>("auth/register", values);
 
     return response.data;
   } catch (error) {
