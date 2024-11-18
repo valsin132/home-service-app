@@ -1,6 +1,7 @@
 import { isAxiosError } from "axios";
 import { axiosInstance } from "./axiosInstance";
-import { RegistrationValues } from "@/types/auth";
+import { RegistrationValues, LoginValues } from "@/types/auth";
+import { User } from "@/types/user";
 
 type RegisterResponse = {
   message: string;
@@ -16,6 +17,30 @@ export const register = async (values: RegistrationValues) => {
   } catch (error) {
     if (isAxiosError(error)) {
       throw new Error(error.response?.data.message ?? registrationErrorMessage);
+    }
+    throw new Error(registrationErrorMessage);
+  }
+};
+
+type LoginResponse = {
+  status: string;
+  token: string;
+  user: User;
+};
+
+const loginErrorMessage = "Login failed";
+
+export const login = async (values: LoginValues) => {
+  try {
+    const { data } = await axiosInstance.post<LoginResponse>("auth/login", values);
+
+    return {
+      token: data.token,
+      user: data.user,
+    };
+  } catch (error) {
+    if (isAxiosError(error)) {
+      throw new Error(error.response?.data.message ?? loginErrorMessage);
     }
     throw new Error(registrationErrorMessage);
   }

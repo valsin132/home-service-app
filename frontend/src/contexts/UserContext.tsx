@@ -1,20 +1,10 @@
 import { createContext, ReactNode } from "react";
 import { useLocalStorage } from "usehooks-ts";
-
-type EmailCredentials = {
-  email: string;
-  password: string;
-};
-
-interface User {
-  _id: number;
-  name: string;
-  email: string;
-}
+import { User } from "@/types/user";
 
 interface UserContextType {
   user: User | null;
-  login: (user: EmailCredentials) => void;
+  login: () => void;
   logout: () => void;
 }
 
@@ -22,13 +12,17 @@ export const UserContext = createContext<UserContextType>({} as UserContextType)
 
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
+  const [, setToken] = useLocalStorage<string | null>("token", null);
 
-  const login = (user: EmailCredentials) => {
-    //laikinai del 4 uzduoties padariau setUser(user): Suvedus inputus ir paspaudus Login mygtuką išsaugoti userio informaciją su useContext ir localStorage bei redirectint į pagrindinį / route
+  const login = (token: string, user: User) => {
+    setToken(token);
     setUser(user);
   };
 
-  const logout = () => setUser(null);
+  const logout = () => {
+    setToken(null);
+    setUser(null);
+  };
 
   return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
 };
