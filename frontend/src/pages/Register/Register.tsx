@@ -26,7 +26,7 @@ export function Register() {
     <div className={styles.loginWrapper}>
       <h2 className={styles.title}>Register</h2>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        {error && <p>{error}</p>}
+        {error && <small>{error}</small>}
         <div className={styles.inputContainer}>
           <label htmlFor="name">Name:</label>
           <input

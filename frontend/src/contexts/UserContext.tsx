@@ -4,7 +4,8 @@ import { User } from "@/types/user";
 
 interface UserContextType {
   user: User | null;
-  login: () => void;
+  isLoggedIn: boolean;
+  login: (token: string, user: User) => void;
   logout: () => void;
 }
 
@@ -13,6 +14,8 @@ export const UserContext = createContext<UserContextType>({} as UserContextType)
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
   const [, setToken] = useLocalStorage<string | null>("token", null);
+
+  const isLoggedIn = !!user;
 
   const login = (token: string, user: User) => {
     setToken(token);
@@ -24,7 +27,11 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
-  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, isLoggedIn, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export default UserContextProvider;

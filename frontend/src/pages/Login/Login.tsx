@@ -16,17 +16,19 @@ export function Login() {
     event.preventDefault();
 
     try {
-      const { token, user } = await loginApi({ email, password }); // Call API
-      login(token, user); // Update context and save token
-      navigate(ROUTES.HOME); // Redirect to home
+      const { token, user } = await loginApi({ email, password });
+      login(token, user);
+      navigate(ROUTES.HOME);
     } catch (error) {
       setError("Invalid email or password. Please try again.");
+      console.log(error);
     }
   };
 
   return (
     <div className={styles.loginWrapper}>
       <h2 className={styles.title}>Login</h2>
+      {error && <small>{error}</small>}
       <form onSubmit={handleLogin} className={styles.formContainer}>
         <div className={styles.inputContainer}>
           <label htmlFor="email">Email:</label>
@@ -38,7 +40,6 @@ export function Login() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          
         </div>
         <div className={styles.inputContainer}>
           <label htmlFor="password">Password:</label>
@@ -50,7 +51,6 @@ export function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-      
         </div>
         <button className={styles.submitButton} type="submit">
           Login
