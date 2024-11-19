@@ -3,15 +3,11 @@ import { axiosInstance } from "./axiosInstance";
 import { RegistrationValues, LoginValues } from "@/types/auth";
 import { User } from "@/types/user";
 
-type RegisterResponse = {
-  message: string;
-};
-
 const registrationErrorMessage = "Registration failed.";
 
 export const register = async (values: RegistrationValues) => {
   try {
-    const response = await axiosInstance.post<RegisterResponse>("auth/register", values);
+    const response = await axiosInstance.post<RegistrationValues>("auth/register", values);
 
     return response.data;
   } catch (error) {

@@ -1,9 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Home } from "./pages/Home/Home";
 import { AboutUs } from "./pages/AboutUs/AboutUs";
 import { ErrorPage } from "./pages/ErrorPage.tsx/ErrorPage";
-import { Login } from "./pages/Login/Login";
-import { Register } from "./pages/Register/Register";
+import { Login } from "./components/User/Login";
+import { Register } from "./components/User/Register";
 import { AuthLayout } from "./layout/AuthLayout";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import { SearchCategory } from "./pages/SearchCategory/SearchCategory";
@@ -55,10 +56,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 export function App() {
   return (
-    <UserContextProvider>
-      <RouterProvider router={router} />
-    </UserContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <UserContextProvider>
+        <RouterProvider router={router} />
+      </UserContextProvider>
+    </QueryClientProvider>
   );
 }

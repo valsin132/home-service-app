@@ -1,44 +1,43 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants";
-import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { login as loginApi } from "@/api/authApi";
-import { LoginValues } from "@/types/auth";
+import { useState } from "react";
+import { RegistrationValues } from "@/types/auth";
 import { Form, Formik, FormikConfig } from "formik";
-import { loginInitialValues, loginValidationSchema } from "./consts";
+import { registerInitialValues, registerValidationSchema } from "./consts";
 import { FormikField } from "@/components/FormikField.tsx/FormikField";
+import { useRegisterUser } from "./hooks";
 import styles from "./Login.module.scss";
 
-type LoginFormFormik = FormikConfig<LoginValues>;
+type RegisterFormFormik = FormikConfig<RegistrationValues>;
 
-export function Login() {
-  const { login } = useContext(UserContext);
+export function Register() {
+  const { mutateAsync: registerUser } = useRegisterUser();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const handleLogin: LoginFormFormik["onSubmit"] = async ({ email, password }) => {
+  const handleRegister: RegisterFormFormik["onSubmit"] = async ({ name, email, password }) => {
     try {
-      const { token, user } = await loginApi({ email, password });
-      login(token, user);
-      navigate(ROUTES.HOME);
+      await registerUser({ name, email, password });
+      navigate(ROUTES.LOGIN);
     } catch (error) {
-      setError("Invalid email or password. Please try again.");
+      setError("Registration failed. Please try again.");
       console.log(error);
     }
   };
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Login</h2>
+      <h2 className={styles.title}>Register</h2>
       {error && <small className={styles.error}>{error}</small>}
       <Formik
-        onSubmit={handleLogin}
-        initialValues={loginInitialValues}
-        validationSchema={loginValidationSchema}
+        onSubmit={handleRegister}
+        initialValues={registerInitialValues}
+        validationSchema={registerValidationSchema}
         className={styles.formContainer}
       >
         <Form>
           <div className={styles.inputContainer}>
+            <FormikField name="name" type="text" label="Name" placeholder="Input name" />
             <FormikField name="email" type="email" label="Email" placeholder="Input email" />
             <FormikField
               name="password"
@@ -53,7 +52,7 @@ export function Login() {
         </Form>
       </Formik>
       <div className={styles.link}>
-        <Link to={ROUTES.REGISTER}>Don&apos;t have an account? Sign up</Link>
+        <Link to={ROUTES.LOGIN}>Already have an account? Log in</Link>
       </div>
     </div>
   );

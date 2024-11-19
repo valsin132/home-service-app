@@ -1,7 +1,5 @@
 import { BusinessCard } from "../BusinessCard/BusinessCard";
-import { fetchBusinesses } from "@/api/businessesApi";
-import { useState, useEffect } from "react";
-import { Business } from "@/types/business";
+import { useBusinesses } from "./hooks";
 import classNames from "classnames";
 import styles from "./BusinessList.module.scss";
 
@@ -11,15 +9,8 @@ interface BusinessListProps {
 }
 
 export function BusinessList({ category, className }: BusinessListProps) {
-  const [businesses, setBusinesses] = useState<Business[]>([]);
-
-  useEffect(() => {
-    fetchBusinesses()
-      .then((response) => {
-        setBusinesses(response);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const { data } = useBusinesses();
+  const businesses = data ?? [];
 
   const filteredBusinesses = category
     ? businesses.filter((business) => business.category === category)
