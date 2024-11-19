@@ -7,7 +7,7 @@ type RegisterResponse = {
   message: string;
 };
 
-const registrationErrorMessage = "Registration failed";
+const registrationErrorMessage = "Registration failed.";
 
 export const register = async (values: RegistrationValues) => {
   try {
@@ -28,7 +28,7 @@ type LoginResponse = {
   user: User;
 };
 
-const loginErrorMessage = "Login failed";
+const loginErrorMessage = "Login failed.";
 
 export const login = async (values: LoginValues) => {
   try {

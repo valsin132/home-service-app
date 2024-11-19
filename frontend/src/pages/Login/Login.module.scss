@@ -1,4 +1,4 @@
-.loginWrapper {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,33 +14,18 @@
 
 .title {
     font-size: 2rem;
-  }
-
-.formContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
 }
 
 .inputContainer {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
 }
-
-.input {
-    border: none;
-    border-bottom: 1px solid black;
-    font-size: 0.9rem;
-    width: 300px;
-}
-
-
 
 .error {
-  color: #FF2C2C;
-  font-size: 0.8rem;
-  max-width: 300px;
+    color: #FF2C2C;
+    max-width: 300px;
+    font-size: 0.8rem;
 }
 
 .submitButton {

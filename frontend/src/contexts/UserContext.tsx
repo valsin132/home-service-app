@@ -5,6 +5,7 @@ import { User } from "@/types/user";
 interface UserContextType {
   user: User | null;
   isLoggedIn: boolean;
+  // eslint-disable-next-line no-unused-vars
   login: (token: string, user: User) => void;
   logout: () => void;
 }
