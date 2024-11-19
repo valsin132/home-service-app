@@ -6,12 +6,14 @@ import { Form, Formik, FormikConfig } from "formik";
 import { registerInitialValues, registerValidationSchema } from "./consts";
 import { FormikField } from "@/components/FormikField.tsx/FormikField";
 import { useRegisterUser } from "./hooks";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 import styles from "./Login.module.scss";
 
 type RegisterFormFormik = FormikConfig<RegistrationValues>;
 
 export function Register() {
   const { mutateAsync: registerUser } = useRegisterUser();
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -41,10 +43,20 @@ export function Register() {
             <FormikField name="email" type="email" label="Email" placeholder="Input email" />
             <FormikField
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               label="Password"
               placeholder="Input password"
             />
+            <button
+              type="button"
+              aria-label={showPassword ? "Password Visible" : "Password Invisible."}
+              className={styles.passwordButton}
+              onClick={() => {
+                setShowPassword((prev) => !prev);
+              }}
+            >
+              {showPassword ? <BsEyeSlash /> : <BsEye />}
+            </button>
             <button className={styles.submitButton} type="submit">
               Log in
             </button>
