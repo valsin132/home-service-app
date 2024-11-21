@@ -11,6 +11,10 @@
     width: 300px;
 }
 
+.input:focus{
+    outline: none;
+}
+
 .error {
     color: #FF2C2C;
     max-width: 300px;
