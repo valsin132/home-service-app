@@ -1,17 +1,6 @@
 import { Field, ErrorMessage } from "formik";
 import styles from "./FormikField.module.scss";
 
-// export type TextFieldProps = {
-//   type: string;
-//   name: string;
-//   label: string;
-//   placeholder: string;
-//   value: string;
-//   disabled?: boolean;
-//   onChange: () => void;
-//   onBlur: () => void;
-// };
-
 interface FormikFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;

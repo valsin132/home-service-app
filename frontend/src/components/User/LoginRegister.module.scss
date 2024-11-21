@@ -28,8 +28,20 @@
     font-size: 0.8rem;
 }
 
+.passwordFieldContainer {
+    position: relative;
+}
+
 .passwordButton {
     background-color: inherit;
+    width: min-content;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 39px;
+    right: -2px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
 }
 
 .submitButton {
@@ -38,9 +50,9 @@
     color: #ffffff;
     border-radius: 2rem;
     font-size: 1rem;
-  
+
     &:hover {
-      background-color: #5b24e7;
+        background-color: #5b24e7;
     }
 }
 
@@ -52,4 +64,3 @@
         text-decoration: underline;
     }
 }
-

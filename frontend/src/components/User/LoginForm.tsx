@@ -3,17 +3,19 @@ import { ROUTES } from "../../constants";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { LoginValues } from "@/types/auth";
+import { ShowPasswordButton } from "./ShowPasswordButton";
 import { Form, Formik, FormikConfig } from "formik";
 import { loginInitialValues, loginValidationSchema } from "./consts";
 import { FormikField } from "@/components/FormikField.tsx/FormikField";
 import { useLoginUser } from "./hooks";
-import styles from "./Login.module.scss";
+import styles from "./LoginRegister.module.scss";
 
 type LoginFormFormik = FormikConfig<LoginValues>;
 
-export function Login() {
+export function LoginForm() {
   const { login } = useContext(UserContext);
   const { mutateAsync: loginUser } = useLoginUser();
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -41,12 +43,18 @@ export function Login() {
         <Form>
           <div className={styles.inputContainer}>
             <FormikField name="email" type="email" label="Email" placeholder="Input email" />
-            <FormikField
-              name="password"
-              type="password"
-              label="Password"
-              placeholder="Input password"
-            />
+            <div className={styles.passwordFieldContainer}>
+              <FormikField
+                name="password"
+                type={showPassword ? "text" : "password"}
+                label="Password"
+                placeholder="Input password"
+              />
+              <ShowPasswordButton
+                showPassword={showPassword}
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            </div>
             <button className={styles.submitButton} type="submit">
               Log in
             </button>
