@@ -9,7 +9,7 @@ type SidebarProps = {
   onClose: () => void;
 };
 
-const Sidebar = ({ isOpen, onClose, children }: SidebarProps) => {
+export function Sidebar({ isOpen, onClose, children }: SidebarProps) {
   return (
     <Modal
       isOpen={isOpen}
@@ -29,6 +29,4 @@ const Sidebar = ({ isOpen, onClose, children }: SidebarProps) => {
       </div>
     </Modal>
   );
-};
-
-export default Sidebar;
+}

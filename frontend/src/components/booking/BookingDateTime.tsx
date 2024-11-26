@@ -1,10 +1,10 @@
 import Calendar from "react-calendar";
 import { useState } from "react";
 import { add, format } from "date-fns";
-import "react-calendar/dist/Calendar.css";
-import "./BookingDateTime.Calendar.scss";
 import { Button } from "../Button/Button";
 import classNames from "classnames";
+import "react-calendar/dist/Calendar.css";
+import "./BookingDateTime.Calendar.scss";
 import styles from "./BookingDateTime.module.scss";
 
 interface DateType {
@@ -12,7 +12,7 @@ interface DateType {
   dateTime: Date | null;
 }
 
-const BookingDateTime = () => {
+export function BookingDateTime() {
   const [date, setDate] = useState<DateType>({
     justDate: null,
     dateTime: null,
@@ -87,6 +87,4 @@ const BookingDateTime = () => {
       </div>
     </div>
   );
-};
-
-export default BookingDateTime;
+}

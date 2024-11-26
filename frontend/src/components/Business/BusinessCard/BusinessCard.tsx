@@ -2,6 +2,7 @@ import { Button } from "../../Button/Button";
 import { FaHeart } from "react-icons/fa6";
 import { useLocalStorage } from "usehooks-ts";
 import { Business } from "@/types/business";
+import { useNavigate } from "react-router-dom";
 import styles from "./BusinessCard.module.scss";
 
 interface BusinessCardProps {
@@ -10,6 +11,11 @@ interface BusinessCardProps {
 
 export function BusinessCard({ business }: BusinessCardProps) {
   const [likedCards, setLikedCards] = useLocalStorage<Business[]>("liked-businesses", []);
+  const navigate = useNavigate();
+
+  const handleBookNow = () => {
+    navigate(`/businesses/${business._id}`);
+  };
 
   const handleLikeClick = () => {
     const isAlreadyLiked = likedCards.some((card) => card._id === business._id);
@@ -37,7 +43,7 @@ export function BusinessCard({ business }: BusinessCardProps) {
         <h3 className={styles.name}>{business.name}</h3>
         <p className={styles.contactPerson}>{business.contactPerson}</p>
         <p className={styles.address}>{business.address}</p>
-        <Button title="Book now" />
+        <Button title="Book now" onClick={handleBookNow} />
       </div>
     </div>
   );
