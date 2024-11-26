@@ -1,5 +1,5 @@
 import { BusinessCard } from "../BusinessCard/BusinessCard";
-import { useBusinesses } from "./hooks";
+import { useBusinesses } from "../hooks";
 import classNames from "classnames";
 import styles from "./BusinessList.module.scss";
 

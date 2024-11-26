@@ -1,4 +1,4 @@
-import { useBusiness } from "@/components/Category/hooks";
+import { useBusiness } from "@/components/Business/hooks";
 import { useParams } from "react-router-dom";
 import { Business } from "@/types/business";
 import { BusinessHeader } from "@/components/Business/BusinessHeader/BusinessHeader";
