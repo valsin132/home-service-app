@@ -1,8 +1,8 @@
-import Calendar from "react-calendar";
 import { useState } from "react";
-import { add, format } from "date-fns";
-import { Button } from "../Button/Button";
+import { add, format, isBefore, isToday, setHours, setMinutes, setSeconds } from "date-fns";
+import Calendar from "react-calendar";
 import classNames from "classnames";
+import { Button } from "../Button/Button";
 import "react-calendar/dist/Calendar.css";
 import "./BookingDateTime.Calendar.scss";
 import styles from "./BookingDateTime.module.scss";
@@ -17,14 +17,16 @@ export function BookingDateTime() {
     justDate: null,
     dateTime: null,
   });
+  const [error, setError] = useState<string | null>(null);
 
   const getTimes = () => {
     if (!date.justDate) return;
 
     const { justDate } = date;
 
-    const start = add(justDate, { hours: 9 });
-    const end = add(justDate, { hours: 20 });
+    const startOfDay = setHours(setMinutes(setSeconds(justDate, 0), 0), 0);
+    const start = add(startOfDay, { hours: 9 });
+    const end = add(startOfDay, { hours: 20 });
     const interval = 60;
 
     const times = [];
@@ -35,11 +37,21 @@ export function BookingDateTime() {
   };
 
   const times = getTimes();
+  const now = new Date();
+
+  const handleBooking = () => {
+    if (!date.justDate || !date.dateTime) {
+      setError("Please select date and time before booking.");
+    } else {
+      setError(null);
+      console.log(`Booked: ${format(date.dateTime, "yyyy-MM-dd HH:mm")}`);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleContainer}>
-        <h3 className={styles.title}>Book an Service</h3>
+        <h3 className={styles.title}>Book a Service</h3>
         <p className={styles.text}>Select Date and Time slot to book a service</p>
         <p className={styles.selectDate}>Select Date</p>
       </div>
@@ -48,10 +60,10 @@ export function BookingDateTime() {
           minDate={new Date()}
           view="month"
           onChange={(selectedDate) =>
-            setDate((prev) => ({
-              ...prev,
+            setDate({
               justDate: selectedDate as Date,
-            }))
+              dateTime: null,
+            })
           }
         />
       </div>
@@ -59,29 +71,38 @@ export function BookingDateTime() {
         <p className={styles.selectTime}>Select Time Slot</p>
         <div className={styles.dateTimesContainer}>
           <div className={styles.timesWrapper}>
-            {times?.map((time, index) => (
-              <div key={index} className={styles.times}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDate((prev) => ({
-                      ...prev,
-                      dateTime: time,
-                    }));
-                  }}
-                  className={classNames(styles.timeButton, {
-                    [styles.active]: date.dateTime?.getTime() === time.getTime(),
-                  })}
-                >
-                  {format(time, "kk:mm")}
-                </button>
-              </div>
-            ))}
+            {times?.map((time, index) => {
+              const isPast = isToday(date.justDate ?? new Date()) && isBefore(time, now);
+              return (
+                <div key={index} className={styles.times}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!isPast) {
+                        setDate((prev) => ({
+                          ...prev,
+                          dateTime: time,
+                        }));
+                        setError(null);
+                      }
+                    }}
+                    className={classNames(styles.timeButton, {
+                      [styles.active]: date.dateTime?.getTime() === time.getTime(),
+                      [styles.disabled]: isPast,
+                    })}
+                    disabled={isPast}
+                  >
+                    {format(time, "HH:mm")}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
+      {error && <p className={styles.error}>{error}</p>}
       <div className={styles.bookButtonContainer}>
-        <Button onClick={() => console.log("booked")} className={styles.bookButton}>
+        <Button onClick={handleBooking} className={styles.bookButton}>
           Book Now
         </Button>
       </div>

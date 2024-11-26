@@ -43,7 +43,7 @@ export function BusinessCard({ business }: BusinessCardProps) {
         <h3 className={styles.name}>{business.name}</h3>
         <p className={styles.contactPerson}>{business.contactPerson}</p>
         <p className={styles.address}>{business.address}</p>
-        <Button title="Book now" onClick={handleBookNow} />
+        <Button onClick={handleBookNow}>Book now</Button>
       </div>
     </div>
   );

@@ -47,7 +47,17 @@
             background-color: $color-purple-primary;
             color: white;
         }
+
+        .disabled {
+            background-color: #eee;
+            cursor: default;
+        }
     }
+}
+
+.error {
+    color: #FF2C2C;
+    font-size: 0.9rem;
 }
 
 .bookButton {
