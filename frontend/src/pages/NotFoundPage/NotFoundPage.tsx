@@ -10,7 +10,7 @@ export function NotFoundPage() {
       <p className={styles.header}>Oops!</p>
       <h1>Page not found!</h1>
       <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
-      <Button onClick={() => navigate(-1)} title="Go Back" />
+      <Button onClick={() => navigate(-1)}>Go Back</Button>
     </div>
   );
 }
