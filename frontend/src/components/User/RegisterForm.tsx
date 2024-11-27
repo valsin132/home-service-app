@@ -7,6 +7,7 @@ import { registerInitialValues, registerValidationSchema } from "./consts";
 import { FormikField } from "@/components/FormikField.tsx/FormikField";
 import { useRegisterUser } from "./hooks";
 import { ShowPasswordButton } from "./ShowPasswordButton";
+import { Toast } from "../Toast/Toast";
 import styles from "./LoginRegister.module.scss";
 
 type RegisterFormFormik = FormikConfig<RegistrationValues>;
@@ -15,12 +16,17 @@ export function RegisterForm() {
   const { mutateAsync: registerUser } = useRegisterUser();
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [toastVisible, setToastVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister: RegisterFormFormik["onSubmit"] = async ({ name, email, password }) => {
     try {
       await registerUser({ name, email, password });
-      navigate(ROUTES.LOGIN);
+      setToastVisible(true);
+      setTimeout(() => {
+        setToastVisible(false);
+        navigate(ROUTES.LOGIN);
+      }, 10000);
     } catch (error) {
       setError("Registration failed. Please try again.");
       console.log(error);
@@ -62,6 +68,12 @@ export function RegisterForm() {
       <div className={styles.link}>
         <Link to={ROUTES.LOGIN}>Already have an account? Log in</Link>
       </div>
+      <Toast
+        isVisible={toastVisible}
+        content="Registered successfully."
+        toastType="success"
+        onClick={() => setToastVisible(false)}
+      />
     </div>
   );
 }

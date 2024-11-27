@@ -14,6 +14,11 @@ export function Avatar({ children }: AvatarProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
+  const handleLogout = async () => {
+    logout();
+    navigate(ROUTES.LOGIN);
+  };
+
   const handleToggleDropDown = () => {
     setDropDownOpen(!isDropDownOpen);
   };
@@ -22,11 +27,6 @@ export function Avatar({ children }: AvatarProps) {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setDropDownOpen(false);
     }
-  };
-
-  const handleLogout = async () => {
-    logout();
-    navigate(ROUTES.LOGIN);
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@ import { BusinessSimilarBusinesses } from "@/components/Business/BusinessSimilar
 import { Button } from "@/components/Button/Button";
 import { PiNotePencil } from "react-icons/pi";
 import { useState } from "react";
-import { Sidebar } from "@/components/sidebar/Sidebar";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
 import { BookingDateTime } from "@/components/booking/BookingDateTime";
 import styles from "./BusinessPage.module.scss";
 
