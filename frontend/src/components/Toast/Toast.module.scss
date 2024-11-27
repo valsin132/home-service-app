@@ -48,13 +48,16 @@
     & .toast__close {
         display: flex;
         align-items: center;
+        background-color: inherit;
+        color: $color-white;
+
+        & svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     & .toast__icon-close {
         cursor: pointer;
-
-        & path {
-            fill: $color-white;
-        }
     }
 }

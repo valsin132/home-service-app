@@ -26,7 +26,7 @@ export function RegisterForm() {
       setTimeout(() => {
         setToastVisible(false);
         navigate(ROUTES.LOGIN);
-      }, 10000);
+      }, 3000);
     } catch (error) {
       setError("Registration failed. Please try again.");
       console.log(error);
