@@ -5,8 +5,10 @@ import categoryRoutes from "./routes/categoryRoutes";
 import businessRoutes from "./routes/businessRoutes";
 import bookingRoutes from "./routes/bookingRoutes";
 import { connectToDb, PORT } from "./db";
+import path from "path";
 
 const app = express();
+app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.json());
 app.use(cors());
 

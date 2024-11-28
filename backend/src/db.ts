@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.VITE_PORT ?? 5000;
 
 const connectToDb = async () => {
   try {
-    const url = process.env.MONGO_URI;
+    const url = process.env.VITE_MONGO_URI;
     if (url === undefined) return;
     await mongoose.connect(url);
     console.log("Connected to MongoDB with Mongoose");

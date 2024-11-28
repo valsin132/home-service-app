@@ -52,7 +52,7 @@ export function Topbar() {
           {user ? (
             <Avatar>{user.name[0]}</Avatar>
           ) : (
-            <Button onClick={() => navigate(ROUTES.LOGIN)}>Login / Sign Up</Button>
+            <Button onClick={() => navigate(ROUTES.LOGIN)}>Log in / Sign up</Button>
           )}
         </nav>
       </div>
