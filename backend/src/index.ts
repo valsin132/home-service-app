@@ -10,7 +10,11 @@ import path from "path";
 const app = express();
 app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://home-service-app-frontend-one.vercel.app",
+  }),
+);
 
 app.use("/auth", authRoutes);
 app.use("/categories", categoryRoutes);
