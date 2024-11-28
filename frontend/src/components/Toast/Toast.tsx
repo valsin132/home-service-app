@@ -9,11 +9,11 @@ import styles from "./Toast.module.scss";
 
 const getIcon = (toastType: ToastTypes): ReactElement | null => {
   switch (toastType) {
-    case "info":
+    case "Info":
       return <IoIosInformationCircleOutline />;
-    case "success":
+    case "Success":
       return <IoIosCheckmarkCircleOutline />;
-    case "warning":
+    case "Warning":
       return <MdErrorOutline />;
     default:
       return null;
@@ -36,7 +36,7 @@ export function Toast({ isVisible, content, toastType, onClick }: ToastProps): R
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className={`${styles.toast} ${styles[`toast--color-${toastType}`]}`}
+          className={`${styles.toast} ${styles[`toastColor${toastType}`]}`}
           initial={{ y: "calc(-100% - 24px)", x: "-50%" }}
           animate={{ y: 0, x: "-50%" }}
           exit={{ y: "calc(-100% - 24px)", transition: { easings: toastCubicBezier } }}
@@ -45,15 +45,15 @@ export function Toast({ isVisible, content, toastType, onClick }: ToastProps): R
           tabIndex={-1}
           ref={toastRef}
         >
-          <div className={styles.toast__icon}>{getIcon(toastType)}</div>
-          <p className={styles.toast__text}>{content}</p>
+          <div className={styles.toastIcon}>{getIcon(toastType)}</div>
+          <p className={styles.toastText}>{content}</p>
           <button
-            className={styles.toast__close}
+            className={styles.toastClose}
             type="button"
             aria-label="Close"
             onClick={onClick}
           >
-            <IoClose className={styles.toast__iconClose} />
+            <IoClose className={styles.toastIconClose} />
           </button>
         </motion.div>
       )}

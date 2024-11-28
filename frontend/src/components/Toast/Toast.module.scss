@@ -10,33 +10,30 @@
     top: 24px;
     z-index: 1;
 
-    &.toast--color-info {
+    &.toastColorInfo {
         background-color: $color-purple-primary;
     }
 
-    &.toast--color-success {
+    &.toastColorSuccess {
         background-color: $color-green-300;
     }
 
-    &.toast--color-warning {
+    &.toastColorWarning {
         background-color: $color-red-500;
     }
 
-    & .toast__icon {
+    & .toastIcon {
         display: flex;
         align-items: flex-start;
+        color: white;
 
         & svg {
             width: 20px;
             height: 20px;
         }
-
-        & path {
-            fill: $color-white;
-        }
     }
 
-    & .toast__text {
+    & .toastText {
         font-size: 1rem;
         font-weight: 600;
         border-right: 1px solid $color-white;
@@ -45,7 +42,7 @@
         text-align: start;
     }
 
-    & .toast__close {
+    & .toastClose {
         display: flex;
         align-items: center;
         background-color: inherit;
@@ -57,7 +54,7 @@
         }
     }
 
-    & .toast__icon-close {
+    & .toastIconClose {
         cursor: pointer;
     }
 }

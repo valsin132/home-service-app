@@ -8,6 +8,7 @@ import { FormikField } from "@/components/FormikField.tsx/FormikField";
 import { useRegisterUser } from "./hooks";
 import { ShowPasswordButton } from "./ShowPasswordButton";
 import { Toast } from "../Toast/Toast";
+import { ToastTypes } from "@/types/toast";
 import styles from "./LoginRegister.module.scss";
 
 type RegisterFormFormik = FormikConfig<RegistrationValues>;
@@ -15,20 +16,26 @@ type RegisterFormFormik = FormikConfig<RegistrationValues>;
 export function RegisterForm() {
   const { mutateAsync: registerUser } = useRegisterUser();
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [toastVisible, setToastVisible] = useState(false);
+  const [toastContent, setToastContent] = useState<string>("");
+  const [toastType, setToastType] = useState<ToastTypes>("Info");
   const navigate = useNavigate();
 
   const handleRegister: RegisterFormFormik["onSubmit"] = async ({ name, email, password }) => {
     try {
       await registerUser({ name, email, password });
+      setToastType("Success");
+      setToastContent("Registered successfully.");
       setToastVisible(true);
+
       setTimeout(() => {
         setToastVisible(false);
         navigate(ROUTES.LOGIN);
-      }, 3000);
+      }, 2000);
     } catch (error) {
-      setError("Registration failed. Please try again.");
+      setToastType("Warning");
+      setToastContent("Registration failed. Please try again.");
+      setToastVisible(true);
       console.log(error);
     }
   };
@@ -36,7 +43,6 @@ export function RegisterForm() {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Register</h2>
-      {error && <small className={styles.error}>{error}</small>}
       <Formik
         onSubmit={handleRegister}
         initialValues={registerInitialValues}
@@ -70,8 +76,8 @@ export function RegisterForm() {
       </div>
       <Toast
         isVisible={toastVisible}
-        content="Registered successfully."
-        toastType="success"
+        content={toastContent}
+        toastType={toastType}
         onClick={() => setToastVisible(false)}
       />
     </div>

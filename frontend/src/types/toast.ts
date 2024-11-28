@@ -1,4 +1,4 @@
-export type ToastTypes = "info" | "success" | "warning";
+export type ToastTypes = "Info" | "Success" | "Warning";
 
 export interface ToastProps {
   isVisible: boolean;
