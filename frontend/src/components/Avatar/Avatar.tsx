@@ -45,7 +45,7 @@ export function Avatar({ children }: AvatarProps) {
             My Account
           </div>
           <div className={styles.dropdownItem} onClick={() => navigate(ROUTES.MY_BOOKING)}>
-            My Booking
+            My Bookings
           </div>
           <div className={styles.dropdownItem} onClick={() => handleLogout()}>
             Logout

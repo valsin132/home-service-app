@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { add, format, isBefore, isToday, setHours, setMinutes, setSeconds } from "date-fns";
 import Calendar from "react-calendar";
 import classNames from "classnames";
-import { Button } from "../Button/Button";
+import { Button } from "../../Button/Button";
+import { UserContext } from "@/contexts/UserContext";
+import { usePostBooking } from "../hooks";
+import { NewBooking } from "@/types/booking";
+import { useNavigate, useParams } from "react-router-dom";
+import { Toast } from "@/components/Toast/Toast";
+import { ToastTypes } from "@/types/toast";
+import { ROUTES } from "@/constants";
 import "react-calendar/dist/Calendar.css";
 import "./BookingDateTime.Calendar.scss";
 import styles from "./BookingDateTime.module.scss";
@@ -13,10 +20,17 @@ interface DateType {
 }
 
 export function BookingDateTime() {
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastContent, setToastContent] = useState<string>("");
+  const [toastType, setToastType] = useState<ToastTypes>("Info");
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [date, setDate] = useState<DateType>({
     justDate: null,
     dateTime: null,
   });
+  const { user } = useContext(UserContext);
+  const { mutateAsync: postBooking } = usePostBooking();
   const [error, setError] = useState<string | null>(null);
 
   const getTimes = () => {
@@ -39,12 +53,33 @@ export function BookingDateTime() {
   const times = getTimes();
   const now = new Date();
 
-  const handleBooking = () => {
-    if (!date.justDate || !date.dateTime) {
-      setError("Please select date and time before booking.");
-    } else {
-      setError(null);
-      console.log(`Booked: ${format(date.dateTime, "yyyy-MM-dd HH:mm")}`);
+  const handleBooking = async () => {
+    if (!id) return;
+
+    const booking: NewBooking = {
+      businessId: id,
+      date: date.justDate,
+      time: format(date.dateTime!, "kk:mm"),
+      userEmail: user!.email,
+      userName: user!.name,
+      status: "confirmed",
+    };
+    try {
+      await postBooking(booking);
+      setToastType("Success");
+      setToastContent("Booking successful!");
+      setToastVisible(true);
+
+      setTimeout(() => {
+        setToastVisible(false);
+        navigate(ROUTES.HOME);
+      }, 2000);
+      setDate({ justDate: null, dateTime: null });
+    } catch (error) {
+      setToastType("Warning");
+      setToastContent("Error booking appointment. Please try again.");
+      setToastVisible(true);
+      console.error("Error booking:", error);
     }
   };
 
@@ -106,6 +141,12 @@ export function BookingDateTime() {
           Book Now
         </Button>
       </div>
+      <Toast
+        isVisible={toastVisible}
+        content={toastContent}
+        toastType={toastType}
+        onClick={() => setToastVisible(false)}
+      />
     </div>
   );
 }

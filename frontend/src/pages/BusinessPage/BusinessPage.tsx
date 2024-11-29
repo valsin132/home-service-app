@@ -9,7 +9,7 @@ import { Button } from "@/components/Button/Button";
 import { PiNotePencil } from "react-icons/pi";
 import { useContext, useState } from "react";
 import { Sidebar } from "@/components/Sidebar/Sidebar";
-import { BookingDateTime } from "@/components/booking/BookingDateTime";
+import { BookingDateTime } from "@/components/Booking/BookingDateTime/BookingDateTime";
 import { Toast } from "@/components/Toast/Toast";
 import { UserContext } from "@/contexts/UserContext";
 import styles from "./BusinessPage.module.scss";

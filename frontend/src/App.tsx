@@ -13,6 +13,7 @@ import { BusinessPage } from "./pages/BusinessPage/BusinessPage";
 import { ROUTES } from "./constants";
 import { RootLayout } from "./layout/RootLayout";
 import UserContextProvider from "./contexts/UserContext";
+import { Bookings } from "./pages/Bookings/Bookings";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.BUSINESS,
         element: <BusinessPage />,
+      },
+      {
+        path: ROUTES.MY_BOOKING,
+        element: <Bookings />,
       },
       {
         path: "*",
