@@ -22,10 +22,9 @@ export function BookingCard({ bookingsData, isLoading, isError }: BookingCardPro
         bookingsData.map((booking) => (
           <div key={booking._id} className={styles.bookingCard}>
             <img src={booking.businessId.images[0]?.url} alt="" />
-
             <div className={styles.info}>
               <strong className={styles.p_category}>{booking.businessId.category}</strong>
-              <p className={styles.person_Name}>
+              <p className={styles.personName}>
                 <GoPerson className={styles.icon} />
                 {booking.businessId.contactPerson}
               </p>

@@ -1,0 +1,42 @@
+.bookingCard {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: calc(50% - 0.5rem);
+    border: 1px solid rgb(240, 238, 238);
+    border-radius: 1rem;
+    padding: 1rem;
+
+    &:hover {
+        background-color: rgb(248, 248, 248);
+    }
+
+    img {
+        object-fit: cover;
+        height: 170px;
+        width: 150px;
+        border-radius: 1rem;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+
+        p {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+
+            .icon {
+                height: 25px;
+                width: 25px;
+                color: $color-purple-primary;
+            }
+        }
+
+        .personName {
+            color: $color-purple-primary;
+        }
+    }
+}

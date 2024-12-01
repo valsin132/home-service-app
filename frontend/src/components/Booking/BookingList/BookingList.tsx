@@ -14,7 +14,7 @@ export function BookingList() {
   return (
     <section className={styles.container}>
       <h2>My Bookings</h2>
-      <div className={styles.bookings_container}>
+      <div className={styles.bookingsContainer}>
         <div className={styles.tabs}>
           <button
             className={classNames({
