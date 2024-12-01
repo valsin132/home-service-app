@@ -1,0 +1,37 @@
+.businessContainer {
+  margin: 0 auto;
+
+  .businessBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+
+    @include for-desktop-down {
+      grid-template-columns: 1fr;
+    }
+
+    .businessBodyLeftCol {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .businessBodyRightCol {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .bookingBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 400px;
+
+      .bookingIcon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

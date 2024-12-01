@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    gap: 2rem;
+
+    @include for-tablet-portrait-down {
+      flex-direction: column;
+    }
+  }
+  
+.categories {
+  width: 30%;
+
+  @include for-tablet-portrait-down {
+    width: 100%;
+  }
+}
+
+.title {
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.businessContainer {
+  width: 70%;
+
+  @include for-tablet-portrait-down {
+    width: 100%;
+  }
+}
+
+.businessList {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+
+  @include for-tablet-portrait-down {
+    grid-template-columns: auto;
+  }
+}
