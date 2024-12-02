@@ -30,7 +30,7 @@
 }
 
 .businessList {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
 
   @include for-tablet-portrait-down {
     grid-template-columns: auto;
