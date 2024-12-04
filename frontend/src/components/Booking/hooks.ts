@@ -8,7 +8,10 @@ export const BOOKING_KEY = "BOOKING";
 
 export const useUserBookings = (status: BookingStatus) => {
   const { user } = useContext(UserContext);
-  const id = user!._id;
+  if (!user) {
+    throw new Error("User is not logged in.");
+  }
+  const id = user._id;
   return useQuery({
     queryKey: [BOOKING_KEY, id, status],
     queryFn: () => fetchUserBookings(id, status),

@@ -50,9 +50,6 @@ export function BookingDateTime() {
     return times;
   };
 
-  const times = getTimes();
-  const now = new Date();
-
   const handleBooking = async () => {
     if (!id) return;
 
@@ -82,6 +79,9 @@ export function BookingDateTime() {
       console.error("Error booking:", error);
     }
   };
+
+  const times = getTimes();
+  const now = new Date();
 
   return (
     <div className={styles.wrapper}>
