@@ -1,0 +1,15 @@
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding:  2rem;
+
+    & .header {
+        color: #8056eb;
+        font-size: 5rem;
+    }
+
+}
