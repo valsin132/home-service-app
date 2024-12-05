@@ -12,31 +12,35 @@ export function BookingList() {
   const bookingsData = bookings ?? [];
 
   return (
-    <section className={styles.container}>
-      <h2>My Bookings</h2>
-      <div className={styles.bookingsContainer}>
-        <div className={styles.tabs}>
-          <button
-            className={classNames({
-              [styles.active]: status === "confirmed",
-            })}
-            onClick={() => setStatus("confirmed")}
-          >
-            Booked
-          </button>
-          <button
-            className={classNames({
-              [styles.active]: status === "completed",
-            })}
-            onClick={() => setStatus("completed")}
-          >
-            Completed
-          </button>
+    <div className={styles.wrapper}>
+      <section className={styles.container}>
+        <div className={styles.header}>
+          <h2>My Bookings</h2>
         </div>
-        <div className={styles.bookings}>
-          <BookingCard bookingsData={bookingsData} isLoading={isLoading} isError={isError} />
+        <div className={styles.bookingsContainer}>
+          <div className={styles.tabs}>
+            <button
+              className={classNames({
+                [styles.active]: status === "confirmed",
+              })}
+              onClick={() => setStatus("confirmed")}
+            >
+              Booked
+            </button>
+            <button
+              className={classNames({
+                [styles.active]: status === "completed",
+              })}
+              onClick={() => setStatus("completed")}
+            >
+              Completed
+            </button>
+          </div>
+          <div className={styles.bookings}>
+            <BookingCard bookingsData={bookingsData} isLoading={isLoading} isError={isError} />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
