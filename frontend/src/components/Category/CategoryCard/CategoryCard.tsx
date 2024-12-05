@@ -25,7 +25,7 @@ export function CategoryCard({ category, isVertical }: CategoryCardProps) {
       })}
       onClick={() => navigate(categoryPath)}
     >
-      {Icon && <Icon fontSize={40} color={category.color} />}
+      {Icon && <Icon fontSize={35} color={category.color} />}
       <p className={styles.name}>{category.name}</p>
     </div>
   );

@@ -1,7 +1,11 @@
 .searchInput {
-  min-width: 280px;
-  padding: 1rem;
+  min-width: 300px;
+  padding: 1.1rem;
   font-size: 1rem;
   border: 2px solid #ccc;
   border-radius: 30px;
+
+  @include for-phone-only {
+    min-width: 200px;
+  }
 }

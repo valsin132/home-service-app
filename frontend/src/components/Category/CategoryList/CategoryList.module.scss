@@ -6,8 +6,9 @@
   align-items: center;
   gap: 1rem;
   padding: 0 1rem;
+ 
 
-  @include for-desktop-down {
+  @include for-desktop-down2 {
     display: grid;
     grid-template-columns: 160px 160px 160px;
     grid-template-rows: auto;
@@ -15,6 +16,7 @@
 
   @include for-phone-only {
     display: grid;
+    justify-items: center;
     grid-template-columns: 160px 160px;
   }
 }

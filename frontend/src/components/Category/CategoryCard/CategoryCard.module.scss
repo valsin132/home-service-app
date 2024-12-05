@@ -10,6 +10,11 @@
   border-radius: 0.5rem;
   box-shadow: 0 .1rem .5rem #0000001a;
 
+  @include for-phone-only{
+    width: 140px;
+    height:100px;
+  }
+
   .name {
     font-size: 1.1rem;
     text-transform: capitalize;
@@ -35,6 +40,10 @@
   border: 2px solid #e6e6e6;
   border-radius: 1rem;
   margin-bottom: 1rem;
+
+  @include for-tablet-portrait-down {
+    margin-bottom: 0;
+  }
   
 
   :last-child {
