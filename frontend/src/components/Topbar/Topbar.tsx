@@ -1,5 +1,5 @@
 import { UserContext } from "../../contexts/UserContext";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { ROUTES } from "../../constants";
 import { Button } from "../Button/Button";
@@ -28,25 +28,25 @@ export function Topbar() {
   return (
     <header className={styles.header}>
       <div className={styles.navWrapper}>
-        <Link to={ROUTES.HOME} onClick={handleMenuItemClick}>
+        <NavLink to={ROUTES.HOME} onClick={handleMenuItemClick}>
           <img src={Logo} alt="logo" />
-        </Link>
+        </NavLink>
         <nav className={classNames(styles.navigation, menuOpen && styles.burgerOpen)}>
           <ul className={styles.links}>
             <li>
-              <Link to={ROUTES.HOME} onClick={handleMenuItemClick}>
+              <NavLink to={ROUTES.HOME} onClick={handleMenuItemClick}>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={ROUTES.SERVICES} onClick={handleMenuItemClick}>
+              <NavLink to={ROUTES.SERVICES} onClick={handleMenuItemClick}>
                 Services
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={ROUTES.ABOUT_US} onClick={handleMenuItemClick}>
+              <NavLink to={ROUTES.ABOUT_US} onClick={handleMenuItemClick}>
                 About Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
           {user ? (

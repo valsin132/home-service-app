@@ -10,9 +10,9 @@
   border-radius: 0.5rem;
   box-shadow: 0 .1rem .5rem #0000001a;
 
-  @include for-phone-only{
+  @include for-phone-only {
     width: 140px;
-    height:100px;
+    height: 100px;
   }
 
   .name {
@@ -27,11 +27,14 @@
     transition: 300ms;
     cursor: pointer;
   }
+
+  .icon {
+    font-size: 30px;
+  }
 }
 
 .vertical {
   width: 100%;
-  min-width: 160px;
   height: auto;
   flex-direction: row;
   justify-content: flex-start;
@@ -44,7 +47,7 @@
   @include for-tablet-portrait-down {
     margin-bottom: 0;
   }
-  
+
 
   :last-child {
     color: inherit;

@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+a:hover, a.active {
+  color: $color-purple-primary;
+}
+
 button {
   border: 0;
   cursor: pointer;
