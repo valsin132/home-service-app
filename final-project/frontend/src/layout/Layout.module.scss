@@ -1,0 +1,11 @@
+.rootLayoutContainer {
+    padding: 4rem;
+
+    @include for-phone-only {
+      padding: 1.5rem;
+    }
+}
+
+.authLayoutContainer {
+    padding: 4rem 2rem;
+}

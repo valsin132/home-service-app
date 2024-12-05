@@ -1,0 +1,118 @@
+.businessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2.5rem 0 6rem 0;
+
+  @include for-desktop-down {
+    flex-direction: column;
+  }
+
+
+  
+}
+
+.leftBusinessBlock {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .businessImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .businessInfoBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .category {
+      display: inline-block;
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: 1.2rem;
+      padding: 0.8rem 1rem;
+      border-radius: 1.5rem;
+      color: $color-purple;
+      background-color: $color-purple-light;
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .businessAddressEmailBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      .businessAddressBlock,
+      .businessEmailBlock {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: $color-grey;
+        font-size: 1.3rem;
+
+        .addressIcon,
+        .emailIcon {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
+.rightBusinessBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+
+  .businessNameTimeBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+  }
+
+  .businessNameBlock {
+    display: flex;
+    color: $color-purple;
+    font-size: 1.3rem;
+    align-items: center;
+    gap: 0.6rem;
+
+    .nameIcon {
+      font-size: 1.8rem;
+    }
+  }
+
+  .businessTimeBlock {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: $color-grey;
+    font-size: 1.3rem;
+
+    .timeIcon {
+      font-size: 1.8rem;
+    }
+  }
+
+  .uploadingBtn {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+
+    .uploadIcon {
+      font-size: 1.5rem;
+    }
+  }
+}

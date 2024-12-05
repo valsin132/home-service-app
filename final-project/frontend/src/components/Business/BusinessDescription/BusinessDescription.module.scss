@@ -1,0 +1,15 @@
+.businessDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+
+  .descriptionTitle {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: $color-grey;
+  }
+}

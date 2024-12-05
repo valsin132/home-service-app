@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: rgba(86, 20, 208, 0.25) 5px 5px 15px;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.error {
+    color: #FF2C2C;
+    max-width: 300px;
+    font-size: 0.8rem;
+}
+
+.passwordFieldContainer {
+    position: relative;
+}
+
+.passwordButton {
+    background-color: inherit;
+    width: min-content;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 39px;
+    right: -2px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+}
+
+.submitButton {
+    padding: 0.6rem 1.5rem;
+    background-color: #8056eb;
+    color: #ffffff;
+    border-radius: 2rem;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: #5b24e7;
+    }
+}
+
+.link {
+    color: #8056eb;
+    font-weight: 500;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
