@@ -4,6 +4,12 @@
   }
 }
 
+@mixin for-phone-only2 {
+  @media (max-width: 400px) {
+    @content;
+  }
+}
+
 @mixin for-tablet-portrait-down {
   @media (max-width: 600px) {
     @content;

@@ -9,6 +9,10 @@
     border-bottom: 1px solid black;
     font-size: 0.9rem;
     width: 300px;
+
+    @include for-phone-only2 {
+        width: 270px;
+    }
 }
 
 .input:focus{
