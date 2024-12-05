@@ -5,7 +5,7 @@ export const fetchUserBookings = async (
   userId: string,
   status: BookingStatus,
 ): Promise<PostBooking[]> => {
-  const response = await axiosInstance.get(`/user/${userId}/bookings`, {
+  const response = await axiosInstance.get(`/bookings/user/${userId}/bookings`, {
     params: { status },
   });
   return response.data;

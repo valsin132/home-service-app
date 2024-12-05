@@ -1,4 +1,14 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Types } from "mongoose";
+
+export interface IBusiness extends Document {
+  name: string;
+  about: string;
+  address: string;
+  category: string;
+  contactPerson: string;
+  email: string;
+  images: { url: string }[];
+}
 
 const businessSchema = new mongoose.Schema({
   name: {

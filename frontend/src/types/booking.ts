@@ -22,4 +22,13 @@ export interface PostBooking {
   status: BookingStatus;
 }
 
-export type NewBooking = Omit<Booking, "_id">;
+// export type NewBooking = Omit<Booking, "_id">;
+export interface NewBooking {
+  user: string; // MongoDB ObjectId as a string
+  businessId: string; // MongoDB ObjectId as a string
+  date: Date | null; // ISO format date
+  time: string; // e.g., "14:00"
+  userEmail: string;
+  userName: string;
+  status: "confirmed" | "pending" | "cancelled";
+}

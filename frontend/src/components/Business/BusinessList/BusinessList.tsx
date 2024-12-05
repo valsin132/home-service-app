@@ -18,9 +18,13 @@ export function BusinessList({ category, className }: BusinessListProps) {
 
   return (
     <div className={classNames(styles.container, className)}>
-      {filteredBusinesses.map((business) => (
-        <BusinessCard key={business._id} business={business} />
-      ))}
+      {filteredBusinesses.length > 0 ? (
+        filteredBusinesses.map((business) => (
+          <BusinessCard key={business._id} business={business} />
+        ))
+      ) : (
+        <div className={styles.noBusinesses}>No services found</div>
+      )}
     </div>
   );
 }

@@ -1,8 +1,25 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Types } from "mongoose";
 
-const bookingSchema = new mongoose.Schema({
+export interface IBooking extends Document {
+  _id: Types.ObjectId;
+  user: Types.ObjectId; // Changed this to store the user ID
+  businessId: Types.ObjectId;
+  date: Date;
+  time: string;
+  userEmail: string;
+  userName: string;
+  status: "confirmed" | "pending" | "cancelled";
+}
+
+const bookingSchema = new mongoose.Schema<IBooking>({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Ensure this matches the User model
+    required: true,
+  },
   businessId: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "Business", // Make sure "Business" matches the name of the model you exported
     required: true,
   },
   date: {

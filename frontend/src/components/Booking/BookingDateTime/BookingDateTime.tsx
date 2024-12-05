@@ -51,9 +51,10 @@ export function BookingDateTime() {
   };
 
   const handleBooking = async () => {
-    if (!id) return;
+    if (!id || !user) return;
 
     const booking: NewBooking = {
+      user: user._id,
       businessId: id,
       date: date.justDate,
       time: format(date.dateTime!, "kk:mm"),

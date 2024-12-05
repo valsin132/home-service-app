@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/", createBooking);
 
-router.get("/user/:email", getUserBookings);
+router.get("/user/:userId/bookings", getUserBookings);
 
 router.delete("/:id", deleteBooking);
 

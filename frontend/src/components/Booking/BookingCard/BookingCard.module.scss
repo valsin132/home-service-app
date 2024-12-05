@@ -4,7 +4,7 @@
     gap: 1rem;
     width: calc(50% - 0.5rem);
     border: 1px solid rgb(240, 238, 238);
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     padding: 1rem;
 
     &:hover {
@@ -15,7 +15,7 @@
         object-fit: cover;
         height: 170px;
         width: 150px;
-        border-radius: 1rem;
+        border-radius: 0.8rem;
     }
 
     .info {
@@ -23,20 +23,25 @@
         flex-direction: column;
         gap: 0.7rem;
 
+        .category {
+            text-transform: capitalize;
+        }
+
+        .personName {
+            color: $color-purple-primary;
+            font-weight: 500;
+        }
+
         p {
             display: flex;
             gap: 0.3rem;
             align-items: center;
 
             .icon {
-                height: 25px;
-                width: 25px;
+                height: 20px;
+                width: 20px;
                 color: $color-purple-primary;
             }
-        }
-
-        .personName {
-            color: $color-purple-primary;
         }
     }
 }

@@ -21,26 +21,29 @@ export function BookingCard({ bookingsData, isLoading, isError }: BookingCardPro
       ) : (
         bookingsData.map((booking) => (
           <div key={booking._id} className={styles.bookingCard}>
-            <img src={booking.businessId.images[0]?.url} alt="" />
+            <img
+              src={booking.businessId?.images?.[0]?.url || "default-image-url.jpg"}
+              alt="Business"
+            />
             <div className={styles.info}>
-              <strong className={styles.p_category}>{booking.businessId.category}</strong>
+              <strong className={styles.category}>
+                {booking.businessId?.category || "Category not available"}
+              </strong>
               <p className={styles.personName}>
                 <GoPerson className={styles.icon} />
-                {booking.businessId.contactPerson}
+                {booking.businessId?.contactPerson || "Contact person not available"}
               </p>
               <p>
                 <CiLocationOn className={styles.icon} />
-                {booking.businessId.address}
+                {booking.businessId?.address || "Address not available"}
               </p>
               <p>
                 <CiCalendar className={styles.icon} />
-                Service on:
-                {booking.date ? new Date(booking.date).toLocaleDateString() : "N/A"}
+                Service on: {booking.date ? new Date(booking.date).toLocaleDateString() : "N/A"}
               </p>
               <p>
                 <LuClock4 className={styles.icon} />
-                Service on:
-                {booking.time}
+                Service on: {booking.time || "Time not available"}
               </p>
             </div>
           </div>

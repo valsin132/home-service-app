@@ -8,7 +8,6 @@ import { Register } from "./pages/Register/Register";
 import { AuthLayout } from "./layout/AuthLayout";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import { SearchCategory } from "./pages/SearchCategory/SearchCategory";
-import { Services } from "./pages/Services/Services";
 import { BusinessPage } from "./pages/BusinessPage/BusinessPage";
 import { ROUTES } from "./constants";
 import { RootLayout } from "./layout/RootLayout";
@@ -26,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.SERVICES,
-        element: <Services />,
+        element: <SearchCategory />,
       },
       {
         path: ROUTES.ABOUT_US,
