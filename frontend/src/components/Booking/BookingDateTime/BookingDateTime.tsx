@@ -53,6 +53,11 @@ export function BookingDateTime() {
   const handleBooking = async () => {
     if (!id || !user) return;
 
+    if (!date.justDate || !date.dateTime) {
+      setError("Please select both a date and a time.");
+      return;
+    }
+
     const booking: NewBooking = {
       user: user._id,
       businessId: id,
@@ -73,6 +78,7 @@ export function BookingDateTime() {
         navigate(ROUTES.HOME);
       }, 2000);
       setDate({ justDate: null, dateTime: null });
+      setError(null);
     } catch (error) {
       setToastType("Warning");
       setToastContent("Error booking appointment. Please try again.");
@@ -105,7 +111,7 @@ export function BookingDateTime() {
       </div>
       <div>
         <p className={styles.selectTime}>Select Time Slot</p>
-        <div className={styles.dateTimesContainer}>
+        <div className={styles.timesContainer}>
           <div className={styles.timesWrapper}>
             {times?.map((time, index) => {
               const isPast = isToday(date.justDate ?? new Date()) && isBefore(time, now);
