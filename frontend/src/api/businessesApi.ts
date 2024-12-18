@@ -1,8 +1,10 @@
 import { axiosInstance } from "./axiosInstance";
 import { Business } from "../types/business";
 
-export const fetchBusinesses = async (): Promise<Business[]> => {
-  const response = await axiosInstance.get("/businesses");
+export const fetchBusinesses = async (search: string): Promise<Business[]> => {
+  const response = await axiosInstance.get("/businesses", {
+    params: { search },
+  });
   return await response.data;
 };
 

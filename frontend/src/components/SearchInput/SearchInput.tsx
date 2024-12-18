@@ -1,5 +1,17 @@
 import styles from "./SearchInput.module.scss";
 
-export function SearchInput({ ...props }) {
-  return <input className={styles.searchInput} placeholder="Search" {...props} />;
+interface SearchInputProps {
+  // eslint-disable-next-line no-unused-vars
+  onSearch: (search: string) => void;
+}
+
+export function SearchInput({ onSearch }: SearchInputProps) {
+  return (
+    <input
+      className={styles.searchInput}
+      type="text"
+      placeholder="Search"
+      onChange={(event) => onSearch(event.target.value)}
+    />
+  );
 }

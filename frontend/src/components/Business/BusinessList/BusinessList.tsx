@@ -6,10 +6,11 @@ import styles from "./BusinessList.module.scss";
 interface BusinessListProps {
   category?: string;
   className?: string;
+  search?: string;
 }
 
-export function BusinessList({ category, className }: BusinessListProps) {
-  const { data } = useBusinesses();
+export function BusinessList({ category, className, search }: BusinessListProps) {
+  const { data } = useBusinesses(search!);
   const businesses = data ?? [];
 
   const filteredBusinesses = category

@@ -12,9 +12,9 @@ export const useBusiness = (businessId: string | undefined) => {
   });
 };
 
-export const useBusinesses = () => {
+export const useBusinesses = (search: string) => {
   return useQuery({
-    queryKey: [BUSINESS_KEY],
-    queryFn: fetchBusinesses,
+    queryKey: [BUSINESS_KEY, search],
+    queryFn: () => fetchBusinesses(search),
   });
 };

@@ -3,9 +3,18 @@ import { Button } from "../../components/Button/Button";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { CategoryList } from "../../components/Category/CategoryList/CategoryList";
 import { BusinessList } from "../../components/Business/BusinessList/BusinessList";
+import { useState } from "react";
 import styles from "./Home.module.scss";
 
 export function Home() {
+  const [search, setSearch] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleSearchClick = () => {
+    setSearch(inputValue);
+    console.log(`searching for: ${inputValue}`);
+  };
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>
@@ -15,8 +24,8 @@ export function Home() {
       </h1>
       <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <div className={styles.searchContainer}>
-        <SearchInput />
-        <Button onClick={() => console.log("clicked")} isRounded>
+        <SearchInput onSearch={setInputValue} />
+        <Button onClick={handleSearchClick} isRounded>
           <div>
             <CiSearch className={styles.searchIcon} />
           </div>
@@ -25,7 +34,7 @@ export function Home() {
       <CategoryList />
       <div className={styles.businessList}>
         <h2 className={styles.popularTitle}>Popular businesses</h2>
-        <BusinessList />
+        <BusinessList search={search} />
       </div>
     </div>
   );

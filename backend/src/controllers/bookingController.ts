@@ -14,23 +14,15 @@ export const createBooking: RequestHandler = async (req, res) => {
   }
 };
 
-// export const getUserBookings: RequestHandler = async (req, res) => {
-//   try {
-//     const userBookings = await Booking.find({ userEmail: req.params.email });
-//     res.json(userBookings);
-//   } catch (err) {
-//     res.status(500).json({ message: "Error fetching bookings for the user", error: err });
-//   }
-// };
 export const getUserBookings: RequestHandler = async (req, res) => {
-  const { userId } = req.params; // Extract userId from URL
-  const { status } = req.query; // Extract status from query parameters
+  const { userId } = req.params;
+  const { status } = req.query;
 
   try {
     const filteredBookings = await Booking.find({
-      user: userId, // Match bookings by user ID
-      status: status as string, // Ensure status matches the query parameter
-    }).populate("businessId"); // Populate business details if referenced
+      user: userId,
+      status: status as string,
+    }).populate("businessId");
     res.status(200).send(filteredBookings);
   } catch (err) {
     res.status(500).json({ message: "Error fetching bookings for the user", error: err });
