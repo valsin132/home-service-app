@@ -12,7 +12,6 @@ export function Home() {
 
   const handleSearchClick = () => {
     setSearch(inputValue);
-    console.log(`searching for: ${inputValue}`);
   };
 
   return (
@@ -24,7 +23,7 @@ export function Home() {
       </h1>
       <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <div className={styles.searchContainer}>
-        <SearchInput onSearch={setInputValue} />
+        <SearchInput onSearch={setInputValue} onEnter={handleSearchClick} />
         <Button onClick={handleSearchClick} isRounded>
           <div>
             <CiSearch className={styles.searchIcon} />

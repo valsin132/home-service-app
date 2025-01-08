@@ -4,8 +4,18 @@ import Business from "../models/Business";
 import Booking from "../models/Booking";
 
 export const getBusinesses: RequestHandler = async (req, res) => {
+  const { search } = req.query;
+
   try {
-    const businesses = await Business.find();
+    const query: any = {};
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: "i" } }, // Search by business name
+        { category: { $regex: search, $options: "i" } }, // Search by category
+      ];
+    }
+
+    const businesses = await Business.find(query);
     res.json(businesses);
   } catch (err) {
     res.status(500).json({ message: "Error fetching businesses", error: err });
