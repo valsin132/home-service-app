@@ -4,6 +4,7 @@ import { CiCalendar } from "react-icons/ci";
 import { LuClock4 } from "react-icons/lu";
 import { PostBooking } from "@/types/booking";
 import styles from "./BookingCard.module.scss";
+import { Button } from "@/components/Button/Button";
 
 interface BookingCardProps {
   bookingsData: PostBooking[];
@@ -45,6 +46,7 @@ export function BookingCard({ bookingsData, isLoading, isError }: BookingCardPro
                 <LuClock4 className={styles.icon} />
                 Service on: {booking.time || "Time not available"}
               </p>
+              <Button className={styles.deleteButton} children="Delete" />
             </div>
           </div>
         ))
