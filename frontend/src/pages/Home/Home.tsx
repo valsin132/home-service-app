@@ -11,7 +11,9 @@ export function Home() {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSearchClick = () => {
-    setSearch(inputValue);
+    if (inputValue.trim() !== "") {
+      setSearch(inputValue.trim());
+    }
   };
 
   return (

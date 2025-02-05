@@ -10,7 +10,7 @@ interface BusinessListProps {
 }
 
 export function BusinessList({ category, className, search }: BusinessListProps) {
-  const { data } = useBusinesses(search!);
+  const { data } = useBusinesses(search?.trim() ?? "");
   const businesses = data ?? [];
 
   const filteredBusinesses = category
